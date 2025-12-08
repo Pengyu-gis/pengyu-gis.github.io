@@ -78,13 +78,14 @@ thumbnail: "assets/img/test_results.png"
     }
     img.content-img {
         max-width: 100%;
+        height: auto; /* Ensures aspect ratio is maintained */
         border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 </style>
 
 <div class="update-box">
-    </strong> This paper, "A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery," was published on July 20, 2025.
+    <strong>🚀 PUBLISHED:</strong> This paper, "A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery," was published on July 20, 2025.
 </div>
 
 <div class="project-links">
@@ -99,7 +100,7 @@ Cities are constantly changing, and often the only record of our urban history i
 However, extracting data from these archives is difficult. Historical analog images suffer from limited spatial resolution, a complete lack of color information, and defects like overexposure.
 
 <figure>
-    <img width="865" height="466" alt="image" src="https://github.com/user-attachments/assets/2238e5dd-bba7-4d3e-840d-6cb5e31ce64d" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/2238e5dd-bba7-4d3e-840d-6cb5e31ce64d" alt="Blurriness and Overexposure Examples" />
     <figcaption>(a) Blurriness and low resolution; (b) Overexposure in historical imagery.</figcaption>
 </figure>
 
@@ -112,8 +113,7 @@ Our study focuses on **Charleston, South Carolina**, a historic port city founde
 We utilized eight black-and-white aerial images captured by the USDA in **1979**, digitized and georeferenced by the University of South Carolina library.
 
 <figure>
-    <img width="865" height="670" alt="image" src="https://github.com/user-attachments/assets/289a1f51-1925-43d5-8a07-bc9fa97289ba" />
-
+    <img class="content-img" src="https://github.com/user-attachments/assets/289a1f51-1925-43d5-8a07-bc9fa97289ba" alt="Study Area Map" />
     <figcaption>The study area covering Charleston, SC, overlaid with the 1979 aerial imagery mosaic.</figcaption>
 </figure>
 
@@ -125,7 +125,7 @@ We constructed a workflow that combines image enhancement with deep learning obj
 3.  **Object Detection** (YOLOv11, Faster R-CNN, DETR)
 
 <figure>
-    <img width="865" height="559" alt="image" src="https://github.com/user-attachments/assets/a5de708a-9132-47f2-afc8-164a240d96b6" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/a5de708a-9132-47f2-afc8-164a240d96b6" alt="Technical Workflow" />
     <figcaption>The overall framework: From raw B&W input -> Colorization -> Super-Resolution -> Detection.</figcaption>
 </figure>
 
@@ -134,7 +134,7 @@ We constructed a workflow that combines image enhancement with deep learning obj
 **Colorization:** We used **DeOldify**, a GAN-based method that combines a U-Net generator with a ResNet-34 backbone. It restores semantic color (e.g., green trees vs. gray roofs), which is critical for modern detection models pretrained on colorful datasets.
 
 <figure>
-    <img width="865" height="693" alt="image" src="https://github.com/user-attachments/assets/4d38a483-2cb7-4133-82a9-c79fa48881bc" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/4d38a483-2cb7-4133-82a9-c79fa48881bc" alt="GAN Architecture" />
     <figcaption>The GAN architecture used for image enhancement (Generator and Discriminator).</figcaption>
 </figure>
 
@@ -145,7 +145,7 @@ We constructed a workflow that combines image enhancement with deep learning obj
 We trained models like **YOLOv11n** using the enhanced images. The architecture uses CSPNet for feature extraction and a PAN neck for multi-scale fusion.
 
 <figure>
-    <img width="865" height="377" alt="image" src="https://github.com/user-attachments/assets/b2555c16-1509-4bfd-960d-fb2c50f9b19a" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/b2555c16-1509-4bfd-960d-fb2c50f9b19a" alt="YOLO Architecture" />
     <figcaption>The YOLOv11 detection pipeline: Input images + Box Labels -> Training -> Output Predictions.</figcaption>
 </figure>
 
@@ -155,12 +155,12 @@ We trained models like **YOLOv11n** using the enhanced images. The architecture 
 The enhancement results were striking. The addition of color helps distinguish buildings from the surrounding vegetation, while super-resolution restores the structural edges of the rooftops.
 
 <figure>
-    <img width="865" height="882" alt="image" src="https://github.com/user-attachments/assets/94d20e0c-de26-4cf5-8fc9-164874d85f45" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/94d20e0c-de26-4cf5-8fc9-164874d85f45" alt="Colorization Results" />
     <figcaption>Comparison: (a) Original Black-and-white images vs (b) GAN-Colorized images.</figcaption>
 </figure>
 
 <figure>
-    <img width="865" height="466" alt="image" src="https://github.com/user-attachments/assets/3a7bc133-593e-4237-afec-756033adaa68" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/3a7bc133-593e-4237-afec-756033adaa68" alt="Large Area Mosaic" />
     <figcaption>A large-scale view of the colorized Charleston mosaic.</figcaption>
 </figure>
 
@@ -168,7 +168,7 @@ The enhancement results were striking. The addition of color helps distinguish b
 When zooming in, the difference becomes even more apparent. Real-ESRGAN effectively removes noise and sharpens the building boundaries.
 
 <figure>
-    <img width="865" height="456" alt="image" src="https://github.com/user-attachments/assets/6c0161c1-dc3c-4a68-9a31-f1cc1a0c4ea1" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/6c0161c1-dc3c-4a68-9a31-f1cc1a0c4ea1" alt="Super Resolution Comparison" />
     <figcaption>Top: Original vs Upscaled B&W. Bottom: Original vs Upscaled Color. Note the sharpness of the roof edges in the upscaled versions.</figcaption>
 </figure>
 
@@ -182,7 +182,7 @@ We compared four training scenarios:
 The **Colored + Upscaled** approach yielded the best performance. **YOLOv11n achieved a mean Average Precision (mAP) of over 85%**, which is a ~40% improvement over the raw B&W images.
 
 <figure>
-    <img width="784" height="1454" alt="image" src="https://github.com/user-attachments/assets/77842118-61db-420e-ba23-fdae8115b3d6" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/77842118-61db-420e-ba23-fdae8115b3d6" alt="Training Metrics Charts" />
     <figcaption>Training curves showing Loss, Precision, Recall, and mAP. The Orange line (Colored) consistently outperforms the Blue line (B&W).</figcaption>
 </figure>
 
@@ -191,14 +191,14 @@ The **Colored + Upscaled** approach yielded the best performance. **YOLOv11n ach
 We also benchmarked different enhancement models. **Real-ESRGAN** outperformed competitors like SwinIR and BSRGAN in maintaining realistic textures without introducing artifacts.
 
 <figure>
-    <img width="865" height="413" alt="image" src="https://github.com/user-attachments/assets/8f32ed21-0348-4479-b189-b14d5cbd3aa1" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/8f32ed21-0348-4479-b189-b14d5cbd3aa1" alt="Comparison of SR Models" />
     <figcaption>Visual comparison of different Super-Resolution models (BSRGAN vs SwinIR vs Real-ESRGAN).</figcaption>
 </figure>
 
 Interestingly, we tested "Zero-Shot" large segmentation models like **SAM (Segment Anything Model)**. They performed poorly on this historical data, often missing buildings or hallucinating shapes due to the domain gap between modern training data and 1979 aerial photos.
 
 <figure>
-    <img width="865" height="509" alt="image" src="https://github.com/user-attachments/assets/e6be3c13-b66d-49fc-bb01-fba7a1866ff2" />
+    <img class="content-img" src="https://github.com/user-attachments/assets/e6be3c13-b66d-49fc-bb01-fba7a1866ff2" alt="SAM Failure Cases" />
     <figcaption>Failure cases using the Segment Anything Model (SAM) with different text prompts.</figcaption>
 </figure>
 
