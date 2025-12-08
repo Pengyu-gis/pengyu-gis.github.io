@@ -1,6 +1,11 @@
 ---
-tags: Point-process Geospatial-statistics Geospatial-analysis Transportation Public-safety
+layout: post
+title: "Intelligent Bear Protection System on the Tibetan Plateau"
+tags: [Point-process Geospatial-statistics Transportation Public-safety]
+feature-img: "https://github.com/user-attachments/assets/02883512-0aba-44c2-9ce8-c95fe1cd7db3"
+thumbnail: "https://github.com/user-attachments/assets/02883512-0aba-44c2-9ce8-c95fe1cd7db3"
 ---
+
 
 *Collaborators: **Xiuchuan Liu** and **Xunan Yang**, Ph.D. students in Statistics at the University of South Carolina.*
 
