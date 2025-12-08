@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Intelligent Bear Protection System on the Tibetan Plateau"
+title: "Spatial Analysis of Fatal Traffic Accidents Using Poisson Point Process"
 tags: [Point-process Geospatial-statistics Transportation Public-safety]
 feature-img: "https://github.com/user-attachments/assets/02883512-0aba-44c2-9ce8-c95fe1cd7db3"
 thumbnail: "https://github.com/user-attachments/assets/02883512-0aba-44c2-9ce8-c95fe1cd7db3"
