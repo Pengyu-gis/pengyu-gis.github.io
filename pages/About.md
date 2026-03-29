@@ -1,5 +1,6 @@
 ---
 layout: page
+title: About ME
 permalink: /about/
 tags: [Page]
 ---
@@ -229,7 +230,7 @@ tags: [Page]
 
 <!-- Hero -->
 <div class="hero">
-    <h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;">陈鹏宇</span></h1>
+    <h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;"></span></h1>
     <div class="subtitle">
         Geospatial & Spatial Learning<br>
     </div>
@@ -242,12 +243,6 @@ tags: [Page]
     </div>
     
     <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
-</div>
-
-<!-- Quote -->
-<div class="quote-block">
-    一九二六，北伐兵兴，边隅之地，青年两个，墨盒为礼，寄语未来；惟不知抬头落款中的两个人，他们的后来，是否就达学问功名，是否完成…『伟大的人生』。
-    — 腰乐队 刘弢
 </div>
 
 <!-- Collaboration Note -->
