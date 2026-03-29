@@ -6,6 +6,13 @@ tags: [Page]
 ---
 
 <style>
+    /* --- Global Width Control --- */
+    .page-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
     /* Global Clean Up */
     body {
         font-family: Helvetica, sans-serif;
@@ -146,21 +153,22 @@ tags: [Page]
     .timeline-item a:hover {
         border-bottom: 1px solid #4a90e2;
     }
-        /* Gallery Grid */
+
+    /* Gallery Grid */
     .advisor-section {
         margin-top: 50px;
     }
     .advisor-grid {
         display: flex;
-        justify-content: space-between; /* Spreads them out evenly */
+        justify-content: space-between;
         gap: 20px;
-        flex-wrap: wrap; /* Stacks them on mobile */
+        flex-wrap: wrap;
     }
     
     /* Individual Card */
     .advisor-card {
-        flex: 1;             /* Each card takes equal width */
-        min-width: 250px;    /* Prevents them from getting too skinny */
+        flex: 1;
+        min-width: 250px;
         text-align: center;
         margin-bottom: 20px;
     }
@@ -168,15 +176,15 @@ tags: [Page]
     /* Image Styling */
     .advisor-img {
         width: 100%;
-        height: 300px;       /* Forces all photos to be the same height */
-        object-fit: cover;   /* Crops the image so it doesn't stretch/distort */
+        height: 300px;
+        object-fit: cover;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         border: 1px solid #eee;
         transition: transform 0.3s;
     }
     .advisor-img:hover {
-        transform: translateY(-5px); /* Slight lift effect on hover */
+        transform: translateY(-5px);
     }
 
     /* Captions */
@@ -191,7 +199,21 @@ tags: [Page]
         color: #777;
         font-style: italic;
     }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+        .advisor-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+        .advisor-card {
+            max-width: 400px;
+            width: 100%;
+        }
+    }
 </style>
+
+<div class="page-container">
 
 <blockquote class="intro-quote">
     <p style="color: #666; font-size: 1rem; margin-top: 10px;">
@@ -300,18 +322,17 @@ tags: [Page]
         </div>
         
         <div class="timeline-item">
-                    <div class="role">Algorithm Intern</div>
-                    <div class="institution">Xuzhou Construction Machinery Group (XCMG)</div>
-                    <div class="date-location">Jan 2022 – Mar 2022 | Xuzhou, China</div>
-                    <ul>
-                        <li>Developed digital roads using Leica software and presented results with ArcGIS.</li>
-                        <li>Implemented curve fitting algorithms to support digital road modeling applications.</li>
-                    </ul>
-                    <p>Supervisor: Mr. Bowen Wu</p>
+            <div class="role">Algorithm Intern</div>
+            <div class="institution">Xuzhou Construction Machinery Group (XCMG)</div>
+            <div class="date-location">Jan 2022 – Mar 2022 | Xuzhou, China</div>
+            <ul>
+                <li>Developed digital roads using Leica software and presented results with ArcGIS.</li>
+                <li>Implemented curve fitting algorithms to support digital road modeling applications.</li>
+            </ul>
+            <p>Supervisor: Mr. Bowen Wu</p>
         </div>
     </div>
 </div>
-
 
 <div class="timeline-section">
     <h2>Teaching & Leadership</h2>
@@ -338,10 +359,8 @@ tags: [Page]
     </div>
 </div>
 
-
-
 <div class="advisor-section">
-    <h2 class="section-header">📸 Me & My Advisors</h2>
+    <h2 style="margin-top: 30px; margin-bottom: 20px; border-left: 5px solid #4a90e2; padding-left: 15px; font-size: 1.5rem; font-weight: 700; color: #2c3e50;">📸 Me & My Advisors</h2>
     
     <div class="advisor-grid">
 
@@ -364,4 +383,6 @@ tags: [Page]
         </div>
 
     </div>
+</div>
+
 </div>
