@@ -205,8 +205,7 @@ tags: [Page]
 
 
 <div style="text-align: center; margin-top: 40px;">
-    <span style="font-weight: 400; color: #888; font-size: 1.2rem;">Pengyu Chen</span>
-    <div style="font-size: 1.1rem; color: #555; margin-bottom: 10px;">
+    <div style="font-size: 1.5rem; color: #555; margin-bottom: 10px;">
         Geospatial & Spatial Learning
     </div>
     <div style="margin-bottom: 10px;">
@@ -220,7 +219,7 @@ tags: [Page]
 
 <!-- Collaboration Note -->
 <div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
-    <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Geospatial Statistics · AI for Good<br>
+    <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Spatial/Geospatial Statistics · AI for Good<br>
     <span style="color: #888; font-size: 0.9rem; display: block; margin-top: 8px;">
         Starting Ph.D. at Virginia Tech in Fall 2026
     </span>
