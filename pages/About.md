@@ -1,387 +1,425 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
 tags: [Page]
 ---
 
 <style>
-    /* --- Global Width Control --- */
+    /* --- Global Reset --- */
     .page-container {
-        max-width: 900px;
+        max-width: 800px;  /* 稍窄一点更适合阅读 */
         margin: 0 auto;
         padding: 0 20px;
+        color: #444;
+        line-height: 1.7;
     }
 
-    /* Global Clean Up */
-    body {
-        font-family: Helvetica, sans-serif;
-        color: #333;
-        line-height: 1.6;
+    /* --- Hero Section --- */
+    .hero {
+        text-align: center;
+        padding: 60px 0 40px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 50px;
     }
-
-    /* The Quote Styling */
-    .intro-quote {
-        border-left: 4px solid #4a90e2; /* Blue accent line */
-        background: #f9f9f9;
-        padding: 15px 20px;
-        font-style: italic;
-        color: #555;
-        margin-bottom: 30px;
-        border-radius: 0 5px 5px 0;
-    }
-    .intro-quote footer {
-        display: block;
-        margin-top: 10px;
-        font-size: 0.9em;
-        color: #888;
-        font-style: normal;
-        text-align: right;
-    }
-
-    /* Contact Info Grid */
-    .contact-info {
-        background: #fff;
-        border: 1px solid #eee;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .contact-row {
-        margin-bottom: 8px;
-    }
-    .social-links a {
-        margin-right: 15px;
-        text-decoration: none;
-        color: #4a90e2;
-        font-weight: 600;
-        transition: color 0.2s;
-    }
-    .social-links a:hover {
-        color: #2c3e50;
-    }
-
-    /* The Button for CV */
-    .btn-cv {
-        display: inline-block;
-        background-color: #4a90e2;
-        color: white !important;
-        padding: 8px 16px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: background 0.3s;
-        margin-bottom: 20px;
-    }
-    .btn-cv:hover {
-        background-color: #357abd;
-        text-decoration: none;
-    }
-
-    /* Timeline Container */
-    .timeline-section {
-        margin-top: 40px;
-    }
-    .timeline {
-        border-left: 2px solid #e0e0e0;
-        padding-left: 25px;
-        margin-left: 5px;
-    }
-    
-    /* Individual Timeline Items */
-    .timeline-item {
-        position: relative;
-        margin-bottom: 35px;
-    }
-    
-    /* The Dot on the timeline */
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -32px; /* Adjust based on padding-left of timeline */
-        top: 6px;
-        width: 12px;
-        height: 12px;
-        background: #fff;
-        border: 2px solid #4a90e2;
-        border-radius: 50%;
-    }
-
-    /* Typography Hierarchy */
-    .role {
-        font-size: 1.2rem;
+    .hero h1 {
+        font-size: 2.2rem;
         font-weight: 700;
         color: #2c3e50;
-        margin-bottom: 4px;
+        margin: 0 0 10px 0;
+        letter-spacing: -0.5px;
     }
-    .institution {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #555;
+    .hero .subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 25px;
+        font-weight: 400;
     }
-    .date-location {
-        font-size: 0.85rem;
-        color: #888;
-        margin-bottom: 8px;
-        font-family: monospace; /* Gives a technical feel */
+    .hero .contact-bar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
-    
-    /* Highlight Tags (GPA, Awards) */
-    .tag {
-        display: inline-block;
-        background: #edf2f7;
-        color: #4a5568;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        margin-right: 5px;
-        margin-top: 5px;
-    }
-    .tag.highlight {
-        background: #ebf8ff;
-        color: #3182ce;
-        border: 1px solid #bee3f8;
-    }
-
-    /* Links inside content */
-    .timeline-item a {
+    .hero .contact-bar a {
         color: #4a90e2;
         text-decoration: none;
-        border-bottom: 1px dotted #4a90e2;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s;
     }
-    .timeline-item a:hover {
-        border-bottom: 1px solid #4a90e2;
+    .hero .contact-bar a:hover {
+        color: #2c3e50;
+    }
+    .btn-cv {
+        display: inline-block;
+        background: #2c3e50;
+        color: white !important;
+        padding: 10px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 10px;
+        transition: all 0.2s;
+    }
+    .btn-cv:hover {
+        background: #4a90e2;
+        transform: translateY(-1px);
     }
 
-    /* Gallery Grid */
-    .advisor-section {
-        margin-top: 50px;
+    /* --- Quote Block --- */
+    .quote-block {
+        margin: 50px auto;
+        max-width: 600px;
+        text-align: center;
+        font-style: italic;
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.8;
+        position: relative;
+        padding: 20px 0;
+    }
+    .quote-block::before {
+        content: '"';
+        font-size: 3rem;
+        color: #ddd;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: Georgia, serif;
+    }
+
+    /* --- Section Cards --- */
+    .section-card {
+        background: #fff;
+        border: 1px solid #f0f0f0;
+        border-radius: 12px;
+        padding: 35px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .section-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin: 0 0 25px 0;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f5f5f5;
+    }
+
+    /* --- Clean List Style (No Timeline Border) --- */
+    .entry {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .entry:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .entry-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+    }
+    .entry-date {
+        font-size: 0.85rem;
+        color: #888;
+        font-family: "SF Mono", Monaco, monospace;
+        white-space: nowrap;
+    }
+    .entry-org {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 8px;
+    }
+    .entry-desc {
+        font-size: 0.95rem;
+        color: #666;
+        margin: 8px 0;
+    }
+    .entry-desc ul {
+        margin: 8px 0;
+        padding-left: 20px;
+    }
+    .entry-desc li {
+        margin-bottom: 4px;
+    }
+    .entry-tags {
+        margin-top: 10px;
+    }
+    .tag {
+        display: inline-block;
+        background: #f0f4f8;
+        color: #4a5568;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        margin-right: 6px;
+    }
+    .tag-highlight {
+        background: #ebf5ff;
+        color: #2563eb;
+    }
+
+    /* --- Advisors Section --- */
+    .advisors {
+        margin-top: 40px;
     }
     .advisor-grid {
         display: flex;
-        justify-content: space-between;
-        gap: 20px;
+        gap: 30px;
+        justify-content: center;
         flex-wrap: wrap;
     }
-    
-    /* Individual Card */
-    .advisor-card {
-        flex: 1;
-        min-width: 250px;
+    .advisor-item {
         text-align: center;
-        margin-bottom: 20px;
+        flex: 0 0 200px;
     }
-
-    /* Image Styling */
     .advisor-img {
         width: 100%;
-        height: 300px;
+        height: 240px;
         object-fit: cover;
         border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        border: 1px solid #eee;
-        transition: transform 0.3s;
+        margin-bottom: 12px;
+        filter: grayscale(20%);
+        transition: filter 0.3s;
     }
     .advisor-img:hover {
-        transform: translateY(-5px);
+        filter: grayscale(0%);
     }
-
-    /* Captions */
     .advisor-name {
-        margin-top: 12px;
-        font-weight: 700;
+        font-weight: 600;
         color: #2c3e50;
-        font-size: 1.1rem;
+        margin-bottom: 4px;
     }
     .advisor-role {
-        font-size: 0.9rem;
-        color: #777;
-        font-style: italic;
+        font-size: 0.85rem;
+        color: #888;
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-        .advisor-grid {
-            flex-direction: column;
-            align-items: center;
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+        .section-card {
+            padding: 25px 20px;
         }
-        .advisor-card {
-            max-width: 400px;
-            width: 100%;
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        .entry-header {
+            flex-direction: column;
+            gap: 4px;
         }
     }
 </style>
 
 <div class="page-container">
 
-<blockquote class="intro-quote">
-    <p style="color: #666; font-size: 1rem; margin-top: 10px;">
-    一九二六，北伐兵兴，边隅之地，青年两个，墨盒为礼，寄语未来；惟不知抬头落款中的两个人，他们的后来，是否就达学问功名，是否完成…『伟大的人生』。— 腰乐队 刘弢
-    </p>
-</blockquote>
-
-<div class="contact-info">
-    <h2>Pengyu Chen | 陈鹏宇</h2>
-    <div class="contact-row"> <strong>Location:</strong> Columbia, SC, USA (Callcott 121/318)</div>
-    <div class="contact-row"> <strong>Email:</strong> pengyuc@email.sc.edu</div>
-    <br>
-    <div class="social-links">
-        <a href="https://github.com/Pengyu-gis">GitHub</a>
-        <a href="https://www.linkedin.com/in/pengyu-chen-a07973181/">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ&hl=en">Google Scholar</a>
-        <a href="https://www.researchgate.net/profile/Pengyu-Chen-20">ResearchGate</a>
+<!-- Hero -->
+<div class="hero">
+    <h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;">陈鹏宇</span></h1>
+    <div class="subtitle">
+        M.S. in Geographic Information Science<br>
+        University of South Carolina
     </div>
-</div>
-
-<a href="/Pengyu_Chen_CV.pdf" class="btn-cv">📄 Download Full CV (PDF)</a>
-
-<p style="color: #666; font-style: margin-top: 13px;">
-    <strong>I'm happy to collaborate with anyone interested in GeoAI (Deep learning in Remote Sensing, AI for Good) and Statistics (Geospatial Statistics, Statistical Physics). </strong>
-    <br> <br>
-    <strong>I'll start my Ph.D. at Virginia Tech in the fall of 2026.🌹</strong>
-</p>
-
-<div class="timeline-section">
-    <h2>Education</h2>
-    <div class="timeline">
-        
-        <div class="timeline-item">
-            <div class="role">M.S. in Geographic Information Science</div>
-            <div class="institution">University of South Carolina</div>
-            <div class="date-location">Aug 2024 – May 2026 | Columbia, SC</div>
-            <div>
-                <span class="tag highlight">TA Full Scholarship</span>
-                <span class="tag">GPA: 3.82/4.0</span>
-            </div>
-            <p>Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ&hl=en">Dr. Sicheng Wang</a></p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">Visiting Student</div>
-            <div class="institution">Wuhan University</div>
-            <div class="date-location">July 2023 – July 2024 | Wuhan, China</div>
-            <p>During the last year of my undergraduate studies, I spent a whole year here as a visiting student.</p>
-            <p>The lovely and handsome advisor is: <a href="https://only4john.github.io/">Prof. Teng Fei</a></p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">B.S. in Geographic Information Science</div>
-            <div class="institution">Wuhan University of Technology</div>
-            <div class="date-location">Sept 2020 – June 2024 | Wuhan, China</div>
-            <p>Thesis: <em>Transformer-based geographic scene description</em><br>
-            Advisor: <a href="https://baike.baidu.com/item/%E5%B4%94%E5%B7%8D/7542643">Prof. Wei Cui</a></p>
-        </div>
-
-    </div>
-</div>
-
-<div class="timeline-section">
-    <h2>Research and Professional Experience</h2>
-    <div class="timeline">
-
-        <div class="timeline-item">
-            <div class="role">Research Assistant</div>
-            <div class="institution">University of South Carolina (Funded by City of Columbia)</div>
-            <div class="date-location">July 2025 – August 2025</div>
-            <ul>
-                <li>Trained a deep learning model to detect tree canopy based on SegFormer.</li>
-                <li>Analyzed canopy loss trends from 2005–2023 using high-resolution imagery.</li>
-            </ul>
-            <p>Advisors: <a href="https://scholar.google.com/citations?user=JPHSY40AAAAJ&hl=en">Dr. Cuizhen Wang</a> & <a href="https://sc.edu/study/colleges_schools/artsandsciences/geography/our_people/our_people_directory/dow_kirstin.php">Dr. Kirstin Dow</a></p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">Research Intern (Spatial Data Lab)</div>
-            <div class="institution">Harvard University</div>
-            <div class="date-location">May 2024 – Sept 2024</div>
-            <p>Focus: Geographic Big Data Analytics, Spatio-Temporal Data Mining.<br>
-            Supervisor: Dr. Yuhang Pan</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">Visiting Student & RA</div>
-            <div class="institution">Wuhan University</div>
-            <div class="date-location">July 2023 – July 2024</div>
-            <ul>
-                <li>Trained YOLO-based object detection algorithm; deployed model compression to K210 microcontroller.</li>
-                <li>Application: Human-Bear conflict mitigation (detecting brown bears to activate deterrents).</li>
-            </ul>
-            <p>Supervisor: <a href="https://only4john.github.io/">Prof. Teng Fei</a></p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">Research Intern</div>
-            <div class="institution">Clemson University (Remote)</div>
-            <div class="date-location">Sept 2022 – Jan 2023</div>
-            <ul>
-                <li>Data processing and curve generation using MATLAB and Python.</li>
-                <li>Published paper in the <em>Journal of Transport Geography</em>.</li>
-            </ul>
-            <p>Supervisor: Dr. Chao Fan</p>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="role">Algorithm Intern</div>
-            <div class="institution">Xuzhou Construction Machinery Group (XCMG)</div>
-            <div class="date-location">Jan 2022 – Mar 2022 | Xuzhou, China</div>
-            <ul>
-                <li>Developed digital roads using Leica software and presented results with ArcGIS.</li>
-                <li>Implemented curve fitting algorithms to support digital road modeling applications.</li>
-            </ul>
-            <p>Supervisor: Mr. Bowen Wu</p>
-        </div>
-    </div>
-</div>
-
-<div class="timeline-section">
-    <h2>Teaching & Leadership</h2>
-    <div class="timeline">
-
-        <div class="timeline-item">
-            <div class="role">Lab Instructor (GEOG 201)</div>
-            <div class="institution">University of South Carolina</div>
-            <div class="date-location">Fall 2024 – Spring 2025</div>
-            <p>Course: Landform Geography.<br>
-            Supervisors: Dr. Jean Taylor Ellis & Dr. John A. Kupfer</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="role">Website Development Leader</div>
-            <div class="institution">GISphere</div>
-            <div class="date-location">Jun 2021 – Present</div>
-            <ul>
-                <li>Developed backend using Django REST Framework; connected to MySQL.</li>
-                <li>Built front-end with Vue; managed user demand pool.</li>
-            </ul>
-        </div>
-
-    </div>
-</div>
-
-<div class="advisor-section">
-    <h2 style="margin-top: 30px; margin-bottom: 20px; border-left: 5px solid #4a90e2; padding-left: 15px; font-size: 1.5rem; font-weight: 700; color: #2c3e50;">📸 Me & My Advisors</h2>
     
+    <div class="contact-bar">
+        <a href="mailto:pengyuc@email.sc.edu">Email</a>
+        <a href="https://github.com/Pengyu-gis">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/pengyu-chen">LinkedIn</a>
+    </div>
+    
+    <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
+</div>
+
+<!-- Quote -->
+<div class="quote-block">
+    一九二六，北伐兵兴，边隅之地，青年两个，墨盒为礼，寄语未来；惟不知抬头落款中的两个人，他们的后来，是否就达学问功名，是否完成…『伟大的人生』。<br>
+    — 腰乐队 刘弢
+</div>
+
+<!-- Collaboration Note -->
+<div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
+    <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Geospatial Statistics · AI for Good<br>
+    <span style="color: #888; font-size: 0.9rem; display: block; margin-top: 8px;">
+        🎓 Starting Ph.D. at Virginia Tech in Fall 2026
+    </span>
+</div>
+
+<!-- Education -->
+<div class="section-card">
+    <h2 class="section-title">Education</h2>
+    
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">M.S. in Geographic Information Science</div>
+            <div class="entry-date">2024 – 2026</div>
+        </div>
+        <div class="entry-org">University of South Carolina, Columbia, SC</div>
+        <div class="entry-tags">
+            <span class="tag tag-highlight">TA Full Scholarship</span>
+            <span class="tag">GPA 3.82/4.0</span>
+        </div>
+        <div class="entry-desc" style="margin-top: 10px;">
+            Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" style="color: #4a90e2; text-decoration: none;">Dr. Sicheng Wang</a>
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Visiting Student</div>
+            <div class="entry-date">2023 – 2024</div>
+        </div>
+        <div class="entry-org">Wuhan University, China</div>
+        <div class="entry-desc">
+            Spent final undergraduate year as visiting student.<br>
+            Advisor: <a href="https://only4john.github.io/" style="color: #4a90e2; text-decoration: none;">Prof. Teng Fei</a>
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">B.S. in Geographic Information Science</div>
+            <div class="entry-date">2020 – 2024</div>
+        </div>
+        <div class="entry-org">Wuhan University of Technology, China</div>
+        <div class="entry-desc">
+            Thesis: <em>Transformer-based geographic scene description</em><br>
+            Advisor: Prof. Wei Cui
+        </div>
+    </div>
+</div>
+
+<!-- Experience -->
+<div class="section-card">
+    <h2 class="section-title">Research Experience</h2>
+    
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Research Assistant</div>
+            <div class="entry-date">Jul – Aug 2025</div>
+        </div>
+        <div class="entry-org">University of South Carolina (City of Columbia funded)</div>
+        <div class="entry-desc">
+            <ul>
+                <li>Tree canopy detection using SegFormer on historical aerial imagery (2005–2023)</li>
+            </ul>
+            Advisors: Dr. Cuizhen Wang & Dr. Kirstin Dow
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Research Intern, Spatial Data Lab</div>
+            <div class="entry-date">May – Sept 2024</div>
+        </div>
+        <div class="entry-org">Harvard University</div>
+        <div class="entry-desc">
+            Geographic Big Data Analytics, Spatio-Temporal Data Mining<br>
+            Supervisor: Dr. Yuhang Pan
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Visiting Student & RA</div>
+            <div class="entry-date">2023 – 2024</div>
+        </div>
+        <div class="entry-org">Wuhan University</div>
+        <div class="entry-desc">
+            <ul>
+                <li>YOLO-based brown bear detection for human-bear conflict mitigation</li>
+                <li>Model compression and deployment to K210 microcontroller</li>
+            </ul>
+            Supervisor: Prof. Teng Fei
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Research Intern</div>
+            <div class="entry-date">Sept 2022 – Jan 2023</div>
+        </div>
+        <div class="entry-org">Clemson University (Remote)</div>
+        <div class="entry-desc">
+            Data processing and curve generation; co-authored paper in <em>Journal of Transport Geography</em><br>
+            Supervisor: Dr. Chao Fan
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Algorithm Intern</div>
+            <div class="entry-date">Jan – Mar 2022</div>
+        </div>
+        <div class="entry-org">Xuzhou Construction Machinery Group (XCMG)</div>
+        <div class="entry-desc">
+            Digital road modeling using Leica software and ArcGIS
+        </div>
+    </div>
+</div>
+
+<!-- Teaching -->
+<div class="section-card">
+    <h2 class="section-title">Teaching & Service</h2>
+    
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Lab Instructor, GEOG 201</div>
+            <div class="entry-date">Fall 2024 – Spring 2025</div>
+        </div>
+        <div class="entry-org">University of South Carolina</div>
+        <div class="entry-desc">
+            Landform Geography laboratory sections<br>
+            Supervisors: Dr. Jean Taylor Ellis & Dr. John A. Kupfer
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div class="entry-title">Website Development Lead</div>
+            <div class="entry-date">2021 – Present</div>
+        </div>
+        <div class="entry-org">GISphere</div>
+        <div class="entry-desc">
+            Backend development (Django REST Framework, MySQL), frontend (Vue), product management
+        </div>
+    </div>
+</div>
+
+<!-- Advisors -->
+<div class="section-card advisors">
+    <h2 class="section-title">Advisors</h2>
     <div class="advisor-grid">
-
-        <div class="advisor-card">
-            <img src="/assets/img/sicheng.jpg" alt="Dr. Sicheng Wang" class="advisor-img" loading="lazy">
+        <div class="advisor-item">
+            <img src="/assets/img/sicheng.jpg" alt="Dr. Sicheng Wang" class="advisor-img">
             <div class="advisor-name">Dr. Sicheng Wang</div>
-            <div class="advisor-role">Master Advisor (USC)</div>
+            <div class="advisor-role">M.S. Advisor, USC</div>
         </div>
-
-        <div class="advisor-card">
-            <img src="/assets/img/tengfei.jpg" alt="Prof. Teng Fei" class="advisor-img" loading="lazy">
+        <div class="advisor-item">
+            <img src="/assets/img/tengfei.jpg" alt="Prof. Teng Fei" class="advisor-img">
             <div class="advisor-name">Prof. Teng Fei</div>
-            <div class="advisor-role">Visiting Advisor (Wuhan Univ)</div>
+            <div class="advisor-role">Visiting Advisor, WHU</div>
         </div>
-
-        <div class="advisor-card">
-            <img src="/assets/img/cuiwei.jpg" alt="Prof. Wei Cui" class="advisor-img" loading="lazy">
+        <div class="advisor-item">
+            <img src="/assets/img/cuiwei.jpg" alt="Prof. Wei Cui" class="advisor-img">
             <div class="advisor-name">Prof. Wei Cui</div>
-            <div class="advisor-role">Undergrad Advisor (WUT)</div>
+            <div class="advisor-role">B.S. Advisor, WUT</div>
         </div>
-
     </div>
 </div>
 
