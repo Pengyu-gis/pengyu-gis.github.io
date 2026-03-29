@@ -20,19 +20,18 @@ tags: [Page]
         text-align: center;
         padding: 60px 0 40px;
         border-bottom: 1px solid #eee;
-        margin-bottom: 17px;
+        margin-bottom: 20px;
     }
     .hero h1 {
         font-size: 2.2rem;
         font-weight: 700;
         color: #2c3e50;
-        margin: 0 0 10px 0;
         letter-spacing: -0.5px;
     }
     .hero .subtitle {
         font-size: 1.1rem;
         color: #666;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         font-weight: 400;
     }
     .hero .contact-bar {
@@ -61,7 +60,6 @@ tags: [Page]
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;
-        margin-top: 10px;
         transition: all 0.2s;
     }
     .btn-cv:hover {
