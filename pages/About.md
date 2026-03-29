@@ -15,42 +15,7 @@ tags: [Page]
         line-height: 1.7;
     }
 
-    /* --- Hero Section --- */
-    .hero {
-        text-align: center;
-        padding: 60px 0 40px;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 20px;
-    }
-    .hero h1 {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        letter-spacing: -0.5px;
-    }
-    .hero .subtitle {
-        font-size: 1.1rem;
-        color: #666;
-        margin-bottom: 20px;
-        font-weight: 400;
-    }
-    .hero .contact-bar {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-    .hero .contact-bar a {
-        color: #4a90e2;
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: color 0.2s;
-    }
-    .hero .contact-bar a:hover {
-        color: #2c3e50;
-    }
+    
     .btn-cv {
         display: inline-block;
         background: #2c3e50;
@@ -238,19 +203,23 @@ tags: [Page]
 <div class="page-container">
 
 
-<h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;"></span></h1>
-<div class="subtitle">
+
+<div style="text-align: center; margin-top: 40px;">
+    <h3 style="margin-bottom: 5px;">
+        Pengyu Chen 
+        <span style="font-weight: 400; color: #888; font-size: 1.2rem;"></span>
+    </h3>
+    <div style="font-size: 1.1rem; color: #555; margin-bottom: 15px;">
         Geospatial & Spatial Learning
+    </div>
+    <div style="margin-bottom: 20px;">
+        <a href="mailto:pengyuc@vt.edu" style="margin: 0 10px; color: #0366d6; text-decoration: none;">Email</a>
+        <a href="https://github.com/Pengyu-gis" style="margin: 0 10px; color: #0366d6; text-decoration: none;">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" style="margin: 0 10px; color: #0366d6; text-decoration: none;">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/pengyu-chen" style="margin: 0 10px; color: #0366d6; text-decoration: none;">LinkedIn</a>
+    </div>
+    <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
 </div>
-    
-<div class="contact-bar">
-        <a href="mailto:pengyuc@email.sc.edu">Email</a>
-        <a href="https://github.com/Pengyu-gis">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/pengyu-chen">LinkedIn</a>
-</div>
-    
-<a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
 
 <!-- Collaboration Note -->
 <div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
