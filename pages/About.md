@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About ME
+title: About
 permalink: /about/
 tags: [Page]
 ---
@@ -20,7 +20,7 @@ tags: [Page]
         text-align: center;
         padding: 60px 0 40px;
         border-bottom: 1px solid #eee;
-        margin-bottom: 50px;
+        margin-bottom: 17px;
     }
     .hero h1 {
         font-size: 2.2rem;
@@ -175,55 +175,66 @@ tags: [Page]
         color: #2563eb;
     }
 
-    /* --- Advisors Section --- */
+    /* --- Advisors Section 适配横向照片 --- */
     .advisors {
         margin-top: 40px;
     }
+    
     .advisor-grid {
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);  /* 桌面端三栏 */
+        gap: 25px;
     }
+    
     .advisor-item {
         text-align: center;
-        flex: 0 0 200px;
     }
-    .advisor-img {
+    
+    /* 横向照片容器 - 16:9 比例 */
+    .advisor-img-wrapper {
+        position: relative;
         width: 100%;
-        height: 240px;
-        object-fit: cover;
+        aspect-ratio: 16/9;  /* 宽屏比例，适合横向合照 */
+        overflow: hidden;
         border-radius: 8px;
         margin-bottom: 12px;
-        filter: grayscale(20%);
-        transition: filter 0.3s;
+        background: #f5f5f5;  /* 占位背景色 */
     }
+    
+    .advisor-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* 保持比例填充 */
+        filter: grayscale(20%);
+        transition: all 0.3s ease;
+    }
+    
     .advisor-img:hover {
         filter: grayscale(0%);
+        transform: scale(1.02);
     }
+    
     .advisor-name {
         font-weight: 600;
         color: #2c3e50;
         margin-bottom: 4px;
+        font-size: 0.95rem;
     }
+    
     .advisor-role {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: #888;
     }
-
-    /* --- Responsive --- */
-    @media (max-width: 600px) {
-        .section-card {
-            padding: 25px 20px;
-        }
-        .hero h1 {
-            font-size: 1.8rem;
-        }
-        .entry-header {
-            flex-direction: column;
-            gap: 4px;
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .advisor-grid {
+            grid-template-columns: 1fr;  /* 移动端单列，照片更宽 */
+            max-width: 500px;
+            margin: 0 auto;
         }
     }
+
 </style>
 
 <div class="page-container">
@@ -232,7 +243,7 @@ tags: [Page]
 <div class="hero">
     <h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;"></span></h1>
     <div class="subtitle">
-        Geospatial & Spatial Learning<br>
+        Geospatial & Spatial Learning
     </div>
     
     <div class="contact-bar">
@@ -249,7 +260,7 @@ tags: [Page]
 <div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
     <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Geospatial Statistics · AI for Good<br>
     <span style="color: #888; font-size: 0.9rem; display: block; margin-top: 8px;">
-        🎓 Starting Ph.D. at Virginia Tech in Fall 2026
+        Starting Ph.D. at Virginia Tech in Fall 2026
     </span>
 </div>
 
