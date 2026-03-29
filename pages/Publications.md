@@ -204,7 +204,17 @@ tags: [Page]
     </a>
 </div>
 
-<h2 class="section-header">Selected Publications</h2>
+<h2 class="section-header">Publications</h2>
+
+<div class="pub-card">
+    <span class="pub-tag tag-journal">Journal</span>
+    <span class="pub-title">Cross-Modal Urban Sensing: Evaluating Sound–Vision Alignment Across Street-Level and Aerial Imagery</span>
+    <span class="pub-authors"><span class="me">Chen, P.</span>, Huang, X., Fei, T., & Wang, S. (2026)</span>
+    <span class="pub-venue">Transactions in GIS</span>
+    <div class="pub-links">
+        <a href="https://doi.org/10.1111/tgis.70246" class="btn-link" target="_blank">DOI Link</a>
+    </div>
+</div>
 
 <div class="pub-card">
     <span class="pub-tag tag-journal">Journal</span>
@@ -237,16 +247,6 @@ tags: [Page]
 </div>
 
 <h2 class="section-header">Preprints & Under Review</h2>
-
-<div class="pub-card">
-    <span class="pub-tag tag-preprint">Preprint</span>
-    <span class="pub-title">Cross-modal urban sensing: Evaluating sound-vision alignment across street-level and aerial imagery</span>
-    <span class="pub-authors"><span class="me">Chen, P.</span>, Huang, X., Teng, F., & Wang, S. (2025)</span>
-    <span class="pub-venue">arXiv:2506.03388</span>
-    <div class="pub-links">
-        <a href="https://arxiv.org/abs/2506.03388" class="btn-link" target="_blank">arXiv PDF</a>
-    </div>
-</div>
 
 <div class="pub-card">
     <span class="pub-tag tag-preprint">Preprint</span>
