@@ -237,22 +237,20 @@ tags: [Page]
 
 <div class="page-container">
 
-<!-- Hero -->
-<div class="hero">
-    <h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;"></span></h1>
-    <div class="subtitle">
+
+<h1>Pengyu Chen <span style="font-weight: 400; color: #666; font-size: 1.3rem;"></span></h1>
+<div class="subtitle">
         Geospatial & Spatial Learning
-    </div>
+</div>
     
-    <div class="contact-bar">
+<div class="contact-bar">
         <a href="mailto:pengyuc@email.sc.edu">Email</a>
         <a href="https://github.com/Pengyu-gis">GitHub</a>
         <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ">Google Scholar</a>
         <a href="https://www.linkedin.com/in/pengyu-chen">LinkedIn</a>
-    </div>
-    
-    <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
 </div>
+    
+<a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
 
 <!-- Collaboration Note -->
 <div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
