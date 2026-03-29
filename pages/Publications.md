@@ -254,7 +254,6 @@ tags: [Page]
     <span class="pub-venue">Transactions in GIS</span>
     <div class="pub-links">
         <a href="https://doi.org/10.1111/tgis.70246" class="btn-link" target="_blank"><i class="fa fa-link"></i> DOI</a>
-        <a href="#" class="btn-link" target="_blank"><i class="fa fa-file-pdf"></i> PDF</a>
     </div>
 </div>
 
@@ -310,7 +309,6 @@ tags: [Page]
     <span class="pub-venue">arXiv:2503.23178</span>
     <div class="pub-links">
         <a href="https://arxiv.org/abs/2503.23178" class="btn-link" target="_blank"><i class="fa fa-external-link-alt"></i> arXiv</a>
-        <a href="#" class="btn-link" target="_blank"><i class="fa fa-file-pdf"></i> PDF</a>
         <span class="btn-link disabled"><i class="fa fa-clock"></i> Under Review</span>
     </div>
 </div>
