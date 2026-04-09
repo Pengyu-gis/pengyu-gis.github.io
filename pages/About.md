@@ -172,12 +172,12 @@ tags: [Page]
             <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ"><i class="fa fa-graduation-cap"></i> Scholar</a>
             <a href="https://www.linkedin.com/in/pengyu-chen"><i class="fa fa-linkedin"></i> LinkedIn</a>
         </div>
-        <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV (Full Version)</a>
+        <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Complete CV (PDF)</a>
     </header>
 
     <div class="status-banner">
         <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Spatial Statistics · AI for Good<br>
-        <p style="margin-top: 8px; margin-bottom: 0;">🚀 Starting my Ph.D. in Geospatial and Environmental Analysis at <strong>Virginia Tech</strong> in Fall 2026.</p>
+        <p style="margin-top: 8px; margin-bottom: 0;">Starting my Ph.D. in Geospatial and Environmental Analysis at <strong>Virginia Tech</strong> in Fall 2026.</p>
     </div>
 
     <h2 class="section-title">Education</h2>
