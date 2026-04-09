@@ -106,8 +106,8 @@ tags: [Page]
 
     <div class="interests-list">
         <span class="interest-item">Geospatial AI</span>
-        <span class="interest-item">Spatial Statistics</span>
         <span class="interest-item">Remote Sensing</span>
+        <span class="interest-item">Urban Computing</span>
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
@@ -163,13 +163,10 @@ tags: [Page]
         </div>
     </div>
 
-    <div class="pub-item">
-        <span class="pub-title">Mapping Multi-Dimensional Urban Tree Canopy Change with Deep Learning: A Case Study of Columbia, SC</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span> (First author)</span>
-        <span class="pub-venue">Manuscript in Preparation</span>
-        <div class="pub-metadata">
-            <span class="badge">Drafting</span>
-        </div>
+    <div class="scholar-footer">
+        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" style="color: #4a90e2; text-decoration: none; font-weight: 500;">
+            <i class="fa fa-graduation-cap"></i> Google Scholar Profile
+        </a>
+        <p style="color: #888; font-size: 0.8rem; margin-top: 15px;">Last updated: April 2026</p>
     </div>
-
 </div>
