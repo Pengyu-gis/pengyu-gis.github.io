@@ -106,8 +106,8 @@ tags: [Page]
 
     <div class="interests-list">
         <span class="interest-item">Geospatial AI</span>
+        <span class="interest-item">Spatial Statistics</span>
         <span class="interest-item">Remote Sensing</span>
-        <span class="interest-item">Urban Computing</span>
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
