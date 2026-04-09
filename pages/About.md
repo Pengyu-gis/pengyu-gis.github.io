@@ -6,386 +6,233 @@ tags: [Page]
 ---
 
 <style>
-    /* --- Global Reset --- */
-    .page-container {
-        max-width: 800px;  /* 稍窄一点更适合阅读 */
+    /* --- 全局容器控制 --- */
+    .about-container {
+        max-width: 800px;
         margin: 0 auto;
-        padding: 0 20px;
-        color: #444;
-        line-height: 1.7;
+        padding: 0 10px;
+        color: #333;
+        line-height: 1.6;
     }
 
-    
+    /* --- 顶部联系方式与按钮 --- */
+    .hero-section {
+        text-align: center;
+        margin: 40px 0 50px 0;
+    }
+    .hero-title {
+        font-size: 1.4rem;
+        color: #666;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    .social-links {
+        margin-bottom: 25px;
+    }
+    .social-links a {
+        margin: 0 12px;
+        color: #4a90e2;
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+    .social-links a:hover { text-decoration: underline; }
+
     .btn-cv {
         display: inline-block;
-        background: #2c3e50;
-        color: white !important;
-        padding: 10px 24px;
-        border-radius: 30px;
+        border: 1px solid #2c3e50;
+        color: #2c3e50 !important;
+        padding: 8px 25px;
+        border-radius: 4px;
         text-decoration: none;
         font-size: 0.9rem;
-        font-weight: 500;
         transition: all 0.2s;
     }
     .btn-cv:hover {
-        background: #4a90e2;
-        transform: translateY(-1px);
+        background: #2c3e50;
+        color: white !important;
     }
 
-    /* --- Quote Block --- */
-    .quote-block {
-        margin: 50px auto;
-        max-width: 600px;
-        text-align: center;
-        font-style: italic;
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.8;
-        position: relative;
-        padding: 20px 0;
-    }
-    .quote-block::before {
-        content: '"';
-        font-size: 3rem;
-        color: #ddd;
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: Georgia, serif;
+    /* --- 极简公告栏 --- */
+    .collab-note {
+        border-left: 3px solid #4a90e2;
+        background: #f8f9fa;
+        padding: 15px 20px;
+        margin: 30px 0;
+        font-size: 0.95rem;
     }
 
-    /* --- Section Cards --- */
-    .section-card {
-        background: #fff;
-        border: 1px solid #f0f0f0;
-        border-radius: 12px;
-        padding: 35px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .section-title {
+    /* --- 模块标题 --- */
+    .section-header {
+        margin: 50px 0 25px 0;
         font-size: 1.3rem;
         font-weight: 700;
-        color: #2c3e50;
-        margin: 0 0 25px 0;
-        padding-bottom: 12px;
-        border-bottom: 2px solid #f5f5f5;
+        border-bottom: 2px solid #333;
+        display: inline-block;
+        padding-bottom: 4px;
     }
 
-    /* --- Clean List Style (No Timeline Border) --- */
+    /* --- 经历条目 --- */
     .entry {
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid #f5f5f5;
-    }
-    .entry:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
+        margin-bottom: 25px;
     }
     .entry-header {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        margin-bottom: 6px;
-        flex-wrap: wrap;
-        gap: 10px;
     }
     .entry-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin: 0;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: #111;
     }
     .entry-date {
         font-size: 0.85rem;
         color: #888;
-        font-family: "SF Mono", Monaco, monospace;
-        white-space: nowrap;
+        font-family: monospace;
     }
-    .entry-org {
+    .entry-sub {
         font-size: 0.95rem;
         color: #555;
-        margin-bottom: 8px;
+        font-style: italic;
+        margin-bottom: 5px;
     }
-    .entry-desc {
+    .entry-content {
         font-size: 0.95rem;
         color: #666;
-        margin: 8px 0;
     }
-    .entry-desc ul {
-        margin: 8px 0;
-        padding-left: 20px;
-    }
-    .entry-desc li {
-        margin-bottom: 4px;
-    }
-    .entry-tags {
-        margin-top: 10px;
-    }
-    .tag {
-        display: inline-block;
-        background: #f0f4f8;
-        color: #4a5568;
-        padding: 3px 10px;
-        border-radius: 12px;
-        font-size: 0.8rem;
-        margin-right: 6px;
-    }
-    .tag-highlight {
-        background: #ebf5ff;
-        color: #2563eb;
+    .entry-content ul {
+        margin: 5px 0;
+        padding-left: 18px;
     }
 
-    /* --- Advisors Section 适配横向照片 --- */
-    .advisors {
-        margin-top: 40px;
-    }
-    
+    /* --- 导师区域 --- */
     .advisor-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);  /* 桌面端三栏 */
-        gap: 25px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 20px;
     }
-    
     .advisor-item {
         text-align: center;
     }
-    
-    /* 横向照片容器 - 16:9 比例 */
-    .advisor-img-wrapper {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16/9;  /* 宽屏比例，适合横向合照 */
-        overflow: hidden;
-        border-radius: 8px;
-        margin-bottom: 12px;
-        background: #f5f5f5;  /* 占位背景色 */
-    }
-    
     .advisor-img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;  /* 保持比例填充 */
-        filter: grayscale(20%);
-        transition: all 0.3s ease;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 4px;
+        filter: grayscale(100%);
+        transition: 0.3s;
+        border: 1px solid #eee;
     }
-    
-    .advisor-img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.02);
-    }
-    
+    .advisor-item:hover .advisor-img { filter: grayscale(0%); }
     .advisor-name {
         font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 4px;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        margin-top: 8px;
+        display: block;
     }
-    
     .advisor-role {
         font-size: 0.8rem;
         color: #888;
     }
-    
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        .advisor-grid {
-            grid-template-columns: 1fr;  /* 移动端单列，照片更宽 */
-            max-width: 500px;
-            margin: 0 auto;
-        }
-    }
 
+    @media (max-width: 600px) {
+        .entry-header { flex-direction: column; }
+        .advisor-grid { grid-template-columns: 1fr; }
+    }
 </style>
 
-<div class="page-container">
+<div class="about-container">
 
-
-
-<div style="text-align: center; margin-top: 40px;">
-    <div style="font-size: 1.5rem; color: #555; margin-bottom: 10px;">
-        Geospatial & Spatial Learning
+    <div class="hero-section">
+        <h1 class="hero-title">Geospatial & Spatial Learning</h1>
+        <div class="social-links">
+            <a href="mailto:pengyuc@vt.edu">Email</a>
+            <a href="https://github.com/Pengyu-gis">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ">Scholar</a>
+            <a href="https://www.linkedin.com/in/pengyu-chen">LinkedIn</a>
+        </div>
+        <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV (PDF)</a>
     </div>
-    <div style="margin-bottom: 10px;">
-        <a href="mailto:pengyuc@vt.edu" style="margin: 0 10px; color: #0366d6; text-decoration: none;">Email</a>
-        <a href="https://github.com/Pengyu-gis" style="margin: 0 10px; color: #0366d6; text-decoration: none;">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" style="margin: 0 10px; color: #0366d6; text-decoration: none;">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/pengyu-chen" style="margin: 0 10px; color: #0366d6; text-decoration: none;">LinkedIn</a>
+
+    <div class="collab-note">
+        <strong>Research Interests:</strong> GeoAI, Remote Sensing, Spatial Statistics.<br>
+        <span style="color: #666;">Incoming Ph.D. Student at Virginia Tech (Fall 2026).</span>
     </div>
-    <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Download CV</a>
-</div>
 
-<!-- Collaboration Note -->
-<div style="text-align: center; margin: 40px 0; padding: 20px; background: #fafbfc; border-radius: 8px; font-size: 0.95rem; color: #555;">
-    <strong>Open to collaboration on:</strong> GeoAI · Remote Sensing · Spatial/Geospatial Statistics · AI for Good<br>
-    <span style="color: #888; font-size: 0.9rem; display: block; margin-top: 8px;">
-        Starting Ph.D. at Virginia Tech in Fall 2026
-    </span>
-</div>
-
-<!-- Education -->
-<div class="section-card">
-    <h2 class="section-title">Education</h2>
+    <h2 class="section-header">Education</h2>
     
     <div class="entry">
         <div class="entry-header">
-            <div class="entry-title">M.S. in Geographic Information Science</div>
-            <div class="entry-date">2024 – 2026</div>
+            <span class="entry-title">M.S. in Geographic Information Science</span>
+            <span class="entry-date">2024 – 2026</span>
         </div>
-        <div class="entry-org">University of South Carolina, Columbia, SC</div>
-        <div class="entry-tags">
-            <span class="tag tag-highlight">TA Full Scholarship</span>
-            <span class="tag">GPA 3.82/4.0</span>
-        </div>
-        <div class="entry-desc" style="margin-top: 10px;">
-            Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" style="color: #4a90e2; text-decoration: none;">Dr. Sicheng Wang</a>
+        <div class="entry-sub">University of South Carolina, Columbia, SC</div>
+        <div class="entry-content">
+            GPA: 3.82/4.0 | Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ">Dr. Sicheng Wang</a>
         </div>
     </div>
 
     <div class="entry">
         <div class="entry-header">
-            <div class="entry-title">Visiting Student</div>
-            <div class="entry-date">2023 – 2024</div>
+            <span class="entry-title">Visiting Student</span>
+            <span class="entry-date">2023 – 2024</span>
         </div>
-        <div class="entry-org">Wuhan University, China</div>
-        <div class="entry-desc">
-            Spent final undergraduate year as visiting student.<br>
-            Advisor: <a href="https://only4john.github.io/" style="color: #4a90e2; text-decoration: none;">Prof. Teng Fei</a>
-        </div>
+        <div class="entry-sub">Wuhan University, China</div>
+        <div class="entry-content">Advisor: Prof. Teng Fei</div>
     </div>
 
     <div class="entry">
         <div class="entry-header">
-            <div class="entry-title">B.S. in Geographic Information Science</div>
-            <div class="entry-date">2020 – 2024</div>
+            <span class="entry-title">B.S. in Geographic Information Science</span>
+            <span class="entry-date">2020 – 2024</span>
         </div>
-        <div class="entry-org">Wuhan University of Technology, China</div>
-        <div class="entry-desc">
-            Thesis: <em>Transformer-based geographic scene description</em><br>
-            Advisor: Prof. Wei Cui
-        </div>
+        <div class="entry-sub">Wuhan University of Technology, China</div>
+        <div class="entry-content">Thesis: <em>Transformer-based geographic scene description</em></div>
     </div>
-</div>
 
-<!-- Experience -->
-<div class="section-card">
-    <h2 class="section-title">Research Experience</h2>
-    
+    <h2 class="section-header">Research Experience</h2>
+
     <div class="entry">
         <div class="entry-header">
-            <div class="entry-title">Research Assistant</div>
-            <div class="entry-date">Jul – Aug 2025</div>
+            <span class="entry-title">Research Assistant (City of Columbia Project)</span>
+            <span class="entry-date">2025</span>
         </div>
-        <div class="entry-org">University of South Carolina (City of Columbia funded)</div>
-        <div class="entry-desc">
+        <div class="entry-sub">University of South Carolina</div>
+        <div class="entry-content">
             <ul>
-                <li>Tree canopy detection using SegFormer on historical aerial imagery (2005–2023)</li>
+                <li>Tree canopy detection using SegFormer on historical aerial imagery (2005–2023).</li>
             </ul>
-            Advisors: Dr. Cuizhen Wang & Dr. Kirstin Dow
         </div>
     </div>
 
     <div class="entry">
         <div class="entry-header">
-            <div class="entry-title">Research Intern, Spatial Data Lab</div>
-            <div class="entry-date">May – Sept 2024</div>
+            <span class="entry-title">Research Intern, Spatial Data Lab</span>
+            <span class="entry-date">2024</span>
         </div>
-        <div class="entry-org">Harvard University</div>
-        <div class="entry-desc">
-            Geographic Big Data Analytics, Spatio-Temporal Data Mining<br>
-            Supervisor: Dr. Yuhang Pan
-        </div>
+        <div class="entry-sub">Harvard University</div>
+        <div class="entry-content">Geographic Big Data Analytics & Spatio-Temporal Data Mining.</div>
     </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <div class="entry-title">Visiting Student & RA</div>
-            <div class="entry-date">2023 – 2024</div>
-        </div>
-        <div class="entry-org">Wuhan University</div>
-        <div class="entry-desc">
-            <ul>
-                <li>YOLO-based brown bear detection for human-bear conflict mitigation</li>
-                <li>Model compression and deployment to K210 microcontroller</li>
-            </ul>
-            Supervisor: Prof. Teng Fei
-        </div>
-    </div>
-
-    <div class="entry">
-        <div class="entry-header">
-            <div class="entry-title">Research Intern</div>
-            <div class="entry-date">Sept 2022 – Jan 2023</div>
-        </div>
-        <div class="entry-org">Clemson University (Remote)</div>
-        <div class="entry-desc">
-            Data processing and curve generation; co-authored paper in <em>Journal of Transport Geography</em><br>
-            Supervisor: Dr. Chao Fan
-        </div>
-    </div>
-
-    <div class="entry">
-        <div class="entry-header">
-            <div class="entry-title">Algorithm Intern</div>
-            <div class="entry-date">Jan – Mar 2022</div>
-        </div>
-        <div class="entry-org">Xuzhou Construction Machinery Group (XCMG)</div>
-        <div class="entry-desc">
-            Digital road modeling using Leica software and ArcGIS
-        </div>
-    </div>
-</div>
-
-<!-- Teaching -->
-<div class="section-card">
-    <h2 class="section-title">Teaching & Service</h2>
-    
-    <div class="entry">
-        <div class="entry-header">
-            <div class="entry-title">Lab Instructor, GEOG 201</div>
-            <div class="entry-date">Fall 2024 – Spring 2025</div>
-        </div>
-        <div class="entry-org">University of South Carolina</div>
-        <div class="entry-desc">
-            Landform Geography laboratory sections<br>
-            Supervisors: Dr. Jean Taylor Ellis & Dr. John A. Kupfer
-        </div>
-    </div>
-
-    <div class="entry">
-        <div class="entry-header">
-            <div class="entry-title">Website Development Lead</div>
-            <div class="entry-date">2021 – Present</div>
-        </div>
-        <div class="entry-org">GISphere</div>
-        <div class="entry-desc">
-            Backend development (Django REST Framework, MySQL), frontend (Vue), product management
-        </div>
-    </div>
-</div>
-
-<!-- Advisors -->
-<div class="section-card advisors">
-    <h2 class="section-title">Advisors</h2>
+    <h2 class="section-header">Advisors</h2>
     <div class="advisor-grid">
         <div class="advisor-item">
-            <img src="/assets/img/sicheng.jpg" alt="Dr. Sicheng Wang" class="advisor-img">
-            <div class="advisor-name">Dr. Sicheng Wang</div>
-            <div class="advisor-role">M.S. Advisor, USC</div>
+            <img src="/assets/img/sicheng.jpg" class="advisor-img">
+            <span class="advisor-name">Dr. Sicheng Wang</span>
+            <span class="advisor-role">M.S. Advisor, USC</span>
         </div>
         <div class="advisor-item">
-            <img src="/assets/img/tengfei.jpg" alt="Prof. Teng Fei" class="advisor-img">
-            <div class="advisor-name">Prof. Teng Fei</div>
-            <div class="advisor-role">Visiting Advisor, WHU</div>
+            <img src="/assets/img/tengfei.jpg" class="advisor-img">
+            <span class="advisor-name">Prof. Teng Fei</span>
+            <span class="advisor-role">Visiting Advisor, WHU</span>
         </div>
         <div class="advisor-item">
-            <img src="/assets/img/cuiwei.jpg" alt="Prof. Wei Cui" class="advisor-img">
-            <div class="advisor-name">Prof. Wei Cui</div>
-            <div class="advisor-role">B.S. Advisor, WUT</div>
+            <img src="/assets/img/cuiwei.jpg" class="advisor-img">
+            <span class="advisor-name">Prof. Wei Cui</span>
+            <span class="advisor-role">B.S. Advisor, WUT</span>
         </div>
     </div>
-</div>
 
 </div>
