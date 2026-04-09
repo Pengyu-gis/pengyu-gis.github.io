@@ -172,10 +172,4 @@ tags: [Page]
         </div>
     </div>
 
-    <div class="scholar-footer">
-        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" style="color: #4a90e2; text-decoration: none; font-weight: 500;">
-            <i class="fa fa-graduation-cap"></i> Google Scholar Profile
-        </a>
-        <p style="color: #888; font-size: 0.8rem; margin-top: 15px;">Last updated: April 2026</p>
-    </div>
 </div>
