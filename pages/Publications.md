@@ -27,15 +27,15 @@ tags: [Page]
     /* --- Publication Cards --- */
     .pub-card {
         margin-bottom: 20px;
-        padding: 20px;
+        padding: 16px;
         background: #fafafa;
         border-radius: 8px;
         border-left: 4px solid #4a90e2;
         transition: transform 0.2s, box-shadow 0.2s;
     }
     .pub-card:hover {
-        transform: translateX(5px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
     
     /* Status-based left borders */
@@ -75,8 +75,8 @@ tags: [Page]
 
     /* --- Content --- */
     .pub-title {
-        font-size: 1.15rem;
-        font-weight: 700;
+        font-size: 1.05rem;
+        font-weight: 600;
         color: #2c3e50;
         margin-bottom: 8px;
         line-height: 1.4;
@@ -242,8 +242,23 @@ tags: [Page]
 </div>
 
 <!-- Published Works -->
-<h2 class="section-header">Journal Articles & Conference Papers</h2>
+<h2 class="section-header">Journal Articles</h2>
 
+<!-- Ursus (NEW - put FIRST) -->
+<div class="pub-card journal highlight">
+    <div class="pub-header">
+        <span class="pub-tag tag-journal">Journal Article</span>
+        <span class="pub-year">2026</span>
+    </div>
+    <span class="pub-title">Intelligent bear deterrence system based on computer vision: Reducing human–bear conflicts in remote areas</span>
+    <span class="pub-authors"><span class="me">Chen, P.</span>, Fei, T., Kupfer, J. A., Du, Y., Yi, J., & Li, Y.</span>
+    <span class="pub-venue">Ursus, 37:e6</span>
+    <div class="pub-links">
+        <a href="https://doi.org/10.2192/URSUS-D-25-00010" class="btn-link" target="_blank">DOI</a>
+    </div>
+</div>
+
+<!-- TGIS -->
 <div class="pub-card journal">
     <div class="pub-header">
         <span class="pub-tag tag-journal">Journal Article</span>
@@ -253,10 +268,11 @@ tags: [Page]
     <span class="pub-authors"><span class="me">Chen, P.</span>, Huang, X., Fei, T., & Wang, S.</span>
     <span class="pub-venue">Transactions in GIS</span>
     <div class="pub-links">
-        <a href="https://doi.org/10.1111/tgis.70246" class="btn-link" target="_blank"><i class="fa fa-link"></i> DOI</a>
+        <a href="https://doi.org/10.1111/tgis.70246" class="btn-link" target="_blank">DOI</a>
     </div>
 </div>
 
+<!-- IJRS -->
 <div class="pub-card journal">
     <div class="pub-header">
         <span class="pub-tag tag-journal">Journal Article</span>
@@ -264,12 +280,27 @@ tags: [Page]
     </div>
     <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
     <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., Wang, S., Huang, B., Huang, L., & Zang, Z.</span>
-    <span class="pub-venue">International Journal of Remote Sensing</span>
+    <span class="pub-venue">International Journal of Remote Sensing (Cover Article)</span>
     <div class="pub-links">
-        <a href="https://doi.org/10.1080/01431161.2025.2534994" class="btn-link" target="_blank"><i class="fa fa-link"></i> DOI</a>
+        <a href="https://doi.org/10.1080/01431161.2025.2534994" class="btn-link" target="_blank">DOI</a>
     </div>
 </div>
 
+<!-- CAGIS (NEW ADD) -->
+<div class="pub-card journal">
+    <div class="pub-header">
+        <span class="pub-tag tag-journal">Journal Article</span>
+        <span class="pub-year">2025</span>
+    </div>
+    <span class="pub-title">Where are GIScience faculty hired from? Analyzing faculty mobility and research themes through hiring networks</span>
+    <span class="pub-authors">Chen, Y., Nelson, J. K., Zhou, B., Zhou, R. Z., Ye, S., Liu, H., Gu, Z., Kar, A., Kwon, H., <span class="me">Chen, P.</span></span>
+    <span class="pub-venue">Cartography and Geographic Information Science</span>
+    <div class="pub-links">
+        <a href="https://doi.org/10.1080/15230406.2025.25675643" class="btn-link" target="_blank">DOI</a>
+    </div>
+</div>
+
+<!-- JTG -->
 <div class="pub-card journal">
     <div class="pub-header">
         <span class="pub-tag tag-journal">Journal Article</span>
@@ -277,39 +308,9 @@ tags: [Page]
     </div>
     <span class="pub-title">Socio-demographic inequalities in the impacts of extreme temperatures on population mobility</span>
     <span class="pub-authors">Gu, X., <span class="me">Chen, P.</span>, & Fan, C.</span>
-    <span class="pub-venue">Journal of Transport Geography, 110, 103755</span>
+    <span class="pub-venue">Journal of Transport Geography</span>
     <div class="pub-links">
-        <a href="https://doi.org/10.1016/j.jtrangeo.2023.103755" class="btn-link" target="_blank"><i class="fa fa-link"></i> DOI</a>
-    </div>
-</div>
-
-<div class="pub-card conference">
-    <div class="pub-header">
-        <span class="pub-tag tag-conf">Conference</span>
-        <span class="pub-year">2022</span>
-    </div>
-    <span class="pub-title">Impacts of Ethiopia dam on vegetation and water and ecological countermeasures</span>
-    <span class="pub-authors"><span class="me">Chen, P.</span>, Liang, T., & Wu, Z.</span>
-    <span class="pub-venue">IOP Conference Series: Earth and Environmental Science</span>
-    <div class="pub-links">
-        <a href="https://doi.org/10.1088/1755-1315/1011/1/012044" class="btn-link" target="_blank"><i class="fa fa-link"></i> DOI</a>
-    </div>
-</div>
-
-<!-- Preprints -->
-<h2 class="section-header">Preprints & Under Review</h2>
-
-<div class="pub-card preprint">
-    <div class="pub-header">
-        <span class="pub-tag tag-preprint">Preprint</span>
-        <span class="pub-year">2025</span>
-    </div>
-    <span class="pub-title">Intelligent bear prevention system based on computer vision: An approach to reduce human-bear conflicts in the Tibetan Plateau area</span>
-    <span class="pub-authors"><span class="me">Chen, P.</span>, Teng, F., Du, Y., Yi, J., Li, Y., & Kupfer, J. A.</span>
-    <span class="pub-venue">arXiv:2503.23178</span>
-    <div class="pub-links">
-        <a href="https://arxiv.org/abs/2503.23178" class="btn-link" target="_blank"><i class="fa fa-external-link-alt"></i> arXiv</a>
-        <span class="btn-link disabled"><i class="fa fa-clock"></i> Under Review</span>
+        <a href="https://doi.org/10.1016/j.jtrangeo.2023.103755" class="btn-link" target="_blank">DOI</a>
     </div>
 </div>
 
