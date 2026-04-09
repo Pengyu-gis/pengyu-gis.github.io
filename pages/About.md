@@ -170,7 +170,7 @@ tags: [Page]
             <a href="mailto:pengyuc@vt.edu"><i class="fa fa-envelope"></i> Email</a>
             <a href="https://github.com/Pengyu-gis"><i class="fa fa-github"></i> GitHub</a>
             <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ"><i class="fa fa-graduation-cap"></i> Scholar</a>
-            <a href="https://www.linkedin.com/in/pengyu-chen"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/pengyu-chen-a07973181/"><i class="fa fa-linkedin"></i> LinkedIn</a>
         </div>
         <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Complete CV (PDF)</a>
     </header>
