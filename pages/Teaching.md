@@ -93,16 +93,26 @@ tags: [Page]
     .eval-section {
         margin-top: 40px;
     }
+    .score-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
     .score-box {
-        background: #e3f2fd; /* Light Blue Background */
-        color: #0d47a1; /* Dark Blue Text */
+        background: #f4f9ff;
+        color: #2c3e50;
         padding: 20px;
         border-radius: 8px;
         text-align: center;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 30px;
+        font-size: 1.1rem;
+        border: 1px solid #e1eaf5;
+    }
+    .score-box.highlight {
+        background: #e3f2fd; /* Light Blue Highlight for latest */
+        color: #0d47a1; 
         border: 1px solid #bbdefb;
+        font-weight: bold;
     }
     .score-number {
         font-size: 1.8rem;
@@ -140,14 +150,13 @@ tags: [Page]
         z-index: 1;
     }
 
-    /* THE FIX FOR YOUR IMAGE */
     .responsive-eval-img {
-        max-width: 100%;     /* Ensures it never exceeds screen width */
-        height: auto;        /* Maintains aspect ratio */
-        border-radius: 8px;  /* Rounded corners */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Soft shadow for depth */
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         display: block;
-        margin: 30px auto;   /* Centers the image */
+        margin: 30px auto;
         border: 1px solid #eee;
     }
     .img-caption {
@@ -165,7 +174,7 @@ tags: [Page]
 
 <div class="course-card">
     <h2 class="course-title">GEOG 201: Landform Geography</h2>
-    <span class="course-meta">Role: Lab Instructor | University of South Carolina | Fall 2024 & Spring 2025</span>
+    <span class="course-meta">Role: Lab Instructor | University of South Carolina | Fall 2024, Spring 2025, & Spring 2026</span>
 
     <h4>📂 Lab Materials & Slides</h4>
     <ul class="material-list">
@@ -200,26 +209,43 @@ tags: [Page]
 <div class="eval-section">
     <h2>Anonymous Evaluations & Feedback</h2>
     
-    <div class="score-box">
-        Fall 2024 Overall Instructor Score:
-        <span class="score-number">4.44 / 5.0</span>
+    <div class="score-container">
+        <div class="score-box highlight">
+            Spring 2026 Overall Instructor Score:
+            <span class="score-number">5.00 / 5.0</span>
+        </div>
+        <div class="score-box">
+            Fall 2024 Overall Instructor Score:
+            <span class="score-number">4.44 / 5.0</span>
+        </div>
     </div>
 
-    <h3>Selected Student Comments</h3>
-    <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">(Including positive and constructive feedback)</p>
-    
+    <h3>Student Feedback (Spring 2026)</h3>
     <div class="comment-grid">
         <div class="student-comment">
-            <span class="comment-text">“Mr. Chen was a great TA! He helped me understand the material better. I will miss him.”</span>
+            <span class="comment-text">"He was the best. He always helped us when we needed it, made the labs engaging and we learned a lot."</span>
         </div>
         <div class="student-comment">
-            <span class="comment-text">“I really enjoyed the labs; he made it very interesting.”</span>
+            <span class="comment-text">"The professor is literally a genius and made everything so easy to understand, as well as engaging."</span>
         </div>
         <div class="student-comment">
-            <span class="comment-text">“He did a good job presenting material and answering questions.”</span>
+            <span class="comment-text">"He was very kind and it was easy to ask him questions regarding the lab. He would explain the labs very well and I understood them."</span>
+        </div>
+        <div class="student-comment">
+            <span class="comment-text">"The combination of lectures and labs help a lot with being able to understand real world applications of what we learned in class."</span>
+        </div>
+    </div>
+
+    <h3>Student Feedback (Fall 2024)</h3>
+    <div class="comment-grid">
+        <div class="student-comment">
+            <span class="comment-text">"Mr. Chen was a great TA! He helped me understand the material better. I will miss him."</span>
+        </div>
+        <div class="student-comment">
+            <span class="comment-text">"I really enjoyed the labs; he made it very interesting."</span>
         </div>
         <div class="student-comment" style="background: #fff3e0; border-color: #ffe0b2;">
-            <span class="comment-text">“Sometimes when we would ask questions, it would be difficult to get an answer that we could understand to grasp the material. But definitely knowledgeable on the subject!”</span>
+            <span class="comment-text">"Sometimes when we would ask questions, it would be difficult to get an answer that we could understand to grasp the material. But definitely knowledgeable on the subject!"</span>
         </div>
     </div>
 </div>
@@ -233,4 +259,3 @@ tags: [Page]
          style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">      
     <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">(But... I love teaching. For real!)</p>
 </div>
-
