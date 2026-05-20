@@ -282,28 +282,4 @@ tags: [Page]
         </div>
     </div>
 
-    <h2 class="section-title">Advisors</h2>
-    <div class="advisor-grid">
-        <div class="advisor-card">
-            <img src="/assets/img/fangzhenglyu.jpg" alt="Fangzheng Lyu" class="advisor-img">
-            <span class="advisor-name">Dr. Fangzheng Lyu</span>
-            <span class="advisor-role">Ph.D. Advisor, VT</span>
-        </div>
-        <div class="advisor-card">
-            <img src="/assets/img/sicheng.jpg" alt="Sicheng Wang" class="advisor-img">
-            <span class="advisor-name">Dr. Sicheng Wang</span>
-            <span class="advisor-role">M.S. Advisor, USC</span>
-        </div>
-        <div class="advisor-card">
-            <img src="/assets/img/tengfei.jpg" alt="Teng Fei" class="advisor-img">
-            <span class="advisor-name">Prof. Teng Fei</span>
-            <span class="advisor-role">Visiting Advisor, WHU</span>
-        </div>
-        <div class="advisor-card">
-            <img src="/assets/img/cuiwei.jpg" alt="Wei Cui" class="advisor-img">
-            <span class="advisor-name">Prof. Wei Cui</span>
-            <span class="advisor-role">B.S. Advisor, WUT</span>
-        </div>
-    </div>
-
 </div>
