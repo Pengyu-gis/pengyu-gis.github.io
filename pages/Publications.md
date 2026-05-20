@@ -11,7 +11,8 @@ tags: [Page]
         max-width: 800px; 
         margin: 0 auto;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        color: #333;
+        /* 继承主题自带的文字颜色，确保黑夜模式下能自动变白 */
+        color: inherit; 
         line-height: 1.6;
     }
 
@@ -19,119 +20,126 @@ tags: [Page]
     .section-header {
         margin: 50px 0 25px 0;
         padding-bottom: 10px;
-        border-bottom: 2px solid #f0f0f0;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.15); /* 使用半透明边框，通杀白天黑夜 */
         font-size: 1.4rem;
         font-weight: 600;
-        color: #111;
         letter-spacing: -0.01em;
     }
 
-    /* --- 研究兴趣 (微调为更精致的胶囊标签) --- */
+    /* --- 研究兴趣 (胶囊标签适配黑夜) --- */
     .interests-list {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
     .interest-item {
-        background: #f5f5f5;
+        background: rgba(128, 128, 128, 0.1); /* 半透明背景自动适配 */
         padding: 6px 14px;
         border-radius: 20px; 
         font-size: 0.85rem;
-        color: #555;
+        color: inherit;
+        opacity: 0.85;
         font-weight: 500;
-        border: 1px solid #eaeaea;
+        border: 1px solid rgba(128, 128, 128, 0.15);
     }
 
-    /* --- 出版物整体交互优化 (Clean Visual Card) --- */
+    /* --- 出版物条目布局与间距优化 --- */
     .pub-item {
-        margin-bottom: 12px;
-        padding: 16px;
+        margin-bottom: 28px; /* 明显增大每个 paper 之间的间隙 */
+        padding: 18px;
         border-radius: 8px;
         border: 1px solid transparent;
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
-    }
-    /* 悬停时整个区域柔和亮起，赋予绝佳的交互暗示 */
-    .pub-item:hover {
-        background: #f8faff;
-        border-color: #e1ebf9;
+        background: rgba(128, 128, 128, 0.02); /* 给予极其微弱的基底区分度 */
     }
     
-    /* 让整个条目在包裹 <a> 标签时保持干净的块级链接 */
+    /* 悬停交互：同时适配白天和黑夜模式的微亮高亮 */
+    .pub-item:hover {
+        background: rgba(26, 13, 171, 0.04); 
+        border-color: rgba(26, 13, 171, 0.15);
+    }
+    
     .pub-link-wrapper {
         text-decoration: none;
-        color: inherit;
+        color: inherit; /* 让包裹链接强制继承父级颜色，防止黑夜模式下瞎掉 */
         display: block;
     }
 
     .pub-title {
         font-size: 1.1rem;
         font-weight: 600;
-        color: #222; 
+        /* 白天默认接近纯黑，黑夜下通过继承展现纯白/浅灰 */
+        color: inherit; 
         display: block;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         transition: color 0.2s ease;
     }
-    /* 悬停在整块区域时，标题顺滑过渡到学术蓝 */
+    /* 鼠标悬停时，标题优雅地转变为学术蓝 */
     .pub-item:hover .pub-title {
-        color: #1a0dab;
+        color: #4a90e2; /* 在黑夜模式下更亮、更清晰的蓝色 */
     }
     
     .pub-authors {
         font-size: 0.95rem;
-        color: #555;
+        color: inherit;
+        opacity: 0.85; /* 使用透明度控制主次，完美适配多主题 */
         display: block;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
     }
     .me {
         font-weight: 700;
-        color: #111;
-        background-gradient: linear-gradient(transparent 60%, #e1ebf9 0); /* 优雅的粗体强调，替代传统下划线 */
-        border-bottom: 2px solid #1a0dab;
+        border-bottom: 2px solid #4a90e2;
         padding-bottom: 1px;
     }
     
     .pub-venue {
         font-size: 0.9rem;
-        color: #666;
+        color: inherit;
+        opacity: 0.7;
         font-style: italic;
     }
     
     .pub-metadata {
         font-size: 0.85rem;
-        margin-top: 10px;
+        margin-top: 12px;
         display: flex;
         align-items: center;
         gap: 12px;
         flex-wrap: wrap;
     }
     
-    /* --- 现代化徽章与小图标 --- */
+    /* --- 现代化徽章与小图标适配 --- */
     .badge {
         font-size: 0.75rem;
         padding: 2px 8px;
         border-radius: 4px;
-        background: #f0f0f0;
-        color: #666;
+        background: rgba(128, 128, 128, 0.15);
+        color: inherit;
+        opacity: 0.9;
         font-weight: 500;
     }
     .badge.highlight {
-        background: #ffebee;
-        color: #c62828;
+        background: rgba(198, 40, 40, 0.15);
+        color: #ef5350;
     }
     .badge.status {
-        background: #e8f5e9;
-        color: #2e7d32;
+        background: rgba(46, 125, 50, 0.15);
+        color: #66bb6a;
     }
     
     .doi-inline-link {
-        color: #006621;
+        color: #2e7d32; /* 稍作提亮的学术绿，保证黑夜下的可见度 */
         text-decoration: none;
         font-weight: 500;
         display: inline-flex;
         align-items: center;
-        gap: 4px;
+        gap: 5px;
+    }
+    /* 黑夜模式下微调 DOI 绿色的亮度和可见度 */
+    @media (prefers-color-scheme: dark) {
+        .doi-inline-link { color: #81c784; }
     }
     .doi-inline-link:hover {
         text-decoration: underline;
@@ -141,13 +149,13 @@ tags: [Page]
     .scholar-footer {
         margin-top: 60px;
         padding: 30px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid rgba(128, 128, 128, 0.15);
         text-align: center;
         font-size: 0.95rem;
     }
 
     @media (max-width: 600px) {
-        .pub-item { padding: 10px; }
+        .pub-item { padding: 12px; margin-bottom: 20px; }
         .publications-container { padding: 0 12px; }
     }
 </style>
@@ -275,6 +283,6 @@ tags: [Page]
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
             Google Scholar Profile
         </a>
-        <p style="color: #888; font-size: 0.8rem; margin-top: 15px;">Last updated: May 2026</p>
+        <p style="color: inherit; opacity: 0.5; font-size: 0.8rem; margin-top: 15px;">Last updated: May 2026</p>
     </div>
 </div>
