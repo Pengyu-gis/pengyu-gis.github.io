@@ -11,7 +11,7 @@ tags: [Page]
         max-width: 850px;
         margin: 0 auto;
         padding: 0 15px;
-        color: #333;
+        color: inherit; /* 继承系统文字颜色，完美适配黑夜模式 */
         line-height: 1.6;
     }
 
@@ -19,13 +19,13 @@ tags: [Page]
     .profile-header {
         text-align: center;
         padding: 40px 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
         margin-bottom: 40px;
     }
     .profile-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: inherit;
         margin-bottom: 15px;
     }
     .contact-links {
@@ -36,35 +36,41 @@ tags: [Page]
         margin-bottom: 25px;
     }
     .contact-links a {
-        color: #4a90e2;
+        color: #4a90e2; /* 在白天与黑夜都有极佳辨识度的蓝色 */
         text-decoration: none;
         font-size: 0.95rem;
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 6px;
     }
     .contact-links a:hover { text-decoration: underline; }
 
     .btn-cv {
         display: inline-block;
-        background: #2c3e50;
-        color: white !important;
+        background: rgba(128, 128, 128, 0.15);
+        color: inherit !important;
         padding: 8px 24px;
         border-radius: 6px;
         text-decoration: none;
         font-size: 0.9rem;
-        transition: all 0.3s;
+        font-weight: 500;
+        border: 1px solid rgba(128, 128, 128, 0.1);
+        transition: all 0.25s ease;
     }
-    .btn-cv:hover { background: #4a90e2; }
+    .btn-cv:hover { 
+        background: #4a90e2; 
+        color: white !important;
+        border-color: #4a90e2;
+    }
 
-    /* --- 状态公告栏 --- */
+    /* --- 状态公告栏 (适配多主题) --- */
     .status-banner {
-        background: #f0f7ff;
+        background: rgba(74, 144, 226, 0.08); /* 使用带有主题蓝倾向的低饱和透明背景 */
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 40px;
         font-size: 0.95rem;
-        color: #2c3e50;
+        color: inherit;
         border-left: 4px solid #4a90e2;
     }
 
@@ -72,8 +78,8 @@ tags: [Page]
     .section-title {
         font-size: 1.4rem;
         font-weight: 700;
-        color: #2c3e50;
-        margin: 40px 0 20px 0;
+        color: inherit;
+        margin: 45px 0 20px 0;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -82,12 +88,13 @@ tags: [Page]
         content: "";
         flex: 1;
         height: 1px;
-        background: #eee;
+        background: rgba(128, 128, 128, 0.15);
     }
 
     /* --- 简历条目布局 --- */
     .entry {
-        margin-bottom: 30px;
+        margin-bottom: 28px;
+        padding: 4px 0;
     }
     .entry-header {
         display: flex;
@@ -98,22 +105,25 @@ tags: [Page]
     .entry-main {
         font-weight: 700;
         font-size: 1.1rem;
-        color: #111;
+        color: inherit;
     }
     .entry-date {
         font-size: 0.85rem;
-        color: #888;
+        color: inherit;
+        opacity: 0.5;
         font-family: 'Courier New', Courier, monospace;
     }
     .entry-sub {
         font-weight: 600;
-        color: #555;
+        color: inherit;
+        opacity: 0.8;
         font-size: 0.95rem;
         margin-bottom: 8px;
     }
     .entry-details {
         font-size: 0.95rem;
-        color: #555;
+        color: inherit;
+        opacity: 0.75;
     }
     .entry-details ul {
         margin: 8px 0;
@@ -123,11 +133,11 @@ tags: [Page]
         margin-bottom: 5px;
     }
 
-    /* --- 导师照片墙 (恢复彩色 & 优化) --- */
+    /* --- 导师照片墙 (扩展为 4 列以包含博士导师) --- */
     .advisor-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
         margin-top: 20px;
     }
     .advisor-card {
@@ -135,29 +145,37 @@ tags: [Page]
     }
     .advisor-img {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 3/4; /* 切换为标准的学者肖像比，更显专业 */
         object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border: 1px solid rgba(128, 128, 128, 0.1);
     }
     .advisor-card:hover .advisor-img {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(74, 144, 226, 0.2);
     }
     .advisor-name {
         display: block;
         font-weight: 700;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-top: 12px;
-        color: #2c3e50;
+        color: inherit;
     }
     .advisor-role {
-        font-size: 0.8rem;
-        color: #888;
+        display: block;
+        font-size: 0.78rem;
+        color: inherit;
+        opacity: 0.5;
+        margin-top: 2px;
     }
 
-    @media (max-width: 700px) {
-        .entry-header { flex-direction: column; }
+    @media (max-width: 768px) {
+        .advisor-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    }
+    @media (max-width: 480px) {
+        .entry-header { flex-direction: column; gap: 2px; }
         .advisor-grid { grid-template-columns: 1fr; }
     }
 </style>
@@ -167,10 +185,10 @@ tags: [Page]
     <header class="profile-header">
         <h1>Pengyu Chen</h1>
         <div class="contact-links">
-            <a href="mailto:pengyuc@vt.edu"><i class="fa fa-envelope"></i> Email</a>
-            <a href="https://github.com/Pengyu-gis"><i class="fa fa-github"></i> GitHub</a>
-            <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ"><i class="fa fa-graduation-cap"></i> Scholar</a>
-            <a href="https://www.linkedin.com/in/pengyu-chen-a07973181/"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:pengyuc@vt.edu"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+            <a href="https://github.com/Pengyu-gis" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+            <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg> Scholar</a>
+            <a href="https://www.linkedin.com/in/pengyu-chen-a07973181/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
         </div>
         <a href="/Pengyu_Chen_CV.pdf" class="btn-cv">Complete CV (PDF)</a>
     </header>
@@ -190,7 +208,7 @@ tags: [Page]
         <div class="entry-sub">University of South Carolina, Columbia, SC</div>
         <div class="entry-details">
             GPA: 3.82/4.0 | Teaching Assistant (Full Scholarship)<br>
-            Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" style="color:#4a90e2; text-decoration:none;">Dr. Sicheng Wang</a>
+            Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" target="_blank" style="color:#4a90e2; text-decoration:none;">Dr. Sicheng Wang</a>
         </div>
     </div>
 
@@ -200,7 +218,7 @@ tags: [Page]
             <span class="entry-date">2023 – 2024</span>
         </div>
         <div class="entry-sub">Wuhan University, China</div>
-        <div class="entry-details">Advisor: <a href="https://only4john.github.io/" style="color:#4a90e2; text-decoration:none;">Prof. Teng Fei</a></div>
+        <div class="entry-details">Advisor: <a href="https://only4john.github.io/" target="_blank" style="color:#4a90e2; text-decoration:none;">Prof. Teng Fei</a></div>
     </div>
 
     <div class="entry">
@@ -266,6 +284,11 @@ tags: [Page]
 
     <h2 class="section-title">Advisors</h2>
     <div class="advisor-grid">
+        <div class="advisor-card">
+            <img src="/assets/img/fangzhenglyu.jpg" alt="Fangzheng Lyu" class="advisor-img">
+            <span class="advisor-name">Dr. Fangzheng Lyu</span>
+            <span class="advisor-role">Ph.D. Advisor, VT</span>
+        </div>
         <div class="advisor-card">
             <img src="/assets/img/sicheng.jpg" alt="Sicheng Wang" class="advisor-img">
             <span class="advisor-name">Dr. Sicheng Wang</span>
