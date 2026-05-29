@@ -6,91 +6,118 @@ tags: [Page]
 ---
 
 <style>
-    /* --- 核心容器控制 --- */
+    /* --- 核心变量与容器控制 --- */
+    :root {
+        --primary-blue: #4a90e2;
+        --hover-bg: rgba(74, 144, 226, 0.04);
+        --hover-border: rgba(74, 144, 226, 0.15);
+        --item-bg: rgba(128, 128, 128, 0.02);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --primary-blue: #64b5f6; /* 黑夜模式下稍作提亮，保证对比度 */
+            --hover-bg: rgba(100, 181, 246, 0.06);
+            --hover-border: rgba(100, 181, 246, 0.25);
+            --item-bg: rgba(255, 255, 255, 0.02);
+        }
+    }
+
     .publications-container {
-        max-width: 800px; 
+        max-width: 840px; 
         margin: 0 auto;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        /* 继承主题自带的文字颜色，确保黑夜模式下能自动变白 */
         color: inherit; 
         line-height: 1.6;
+        padding: 0 20px;
     }
 
     /* --- 简洁标题 --- */
     .section-header {
-        margin: 50px 0 25px 0;
-        padding-bottom: 10px;
-        border-bottom: 2px solid rgba(128, 128, 128, 0.15); /* 使用半透明边框，通杀白天黑夜 */
+        margin: 45px 0 25px 0;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.15);
         font-size: 1.4rem;
         font-weight: 600;
         letter-spacing: -0.01em;
     }
 
-    /* --- 研究兴趣 (胶囊标签适配黑夜) --- */
+    /* --- 研究兴趣胶囊标签 --- */
     .interests-list {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
     .interest-item {
-        background: rgba(128, 128, 128, 0.1); /* 半透明背景自动适配 */
+        background: rgba(128, 128, 128, 0.08);
         padding: 6px 14px;
         border-radius: 20px; 
         font-size: 0.85rem;
         color: inherit;
         opacity: 0.85;
         font-weight: 500;
-        border: 1px solid rgba(128, 128, 128, 0.15);
+        border: 1px solid rgba(128, 128, 128, 0.12);
     }
 
-    /* --- 出版物条目布局与间距优化 --- */
+    /* --- 出版物条目布局与高级动画优化 --- */
     .pub-item {
-        margin-bottom: 28px; /* 明显增大每个 paper 之间的间隙 */
-        padding: 18px;
-        border-radius: 8px;
-        border: 1px solid transparent;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-bottom: 24px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(128, 128, 128, 0.08);
+        background: var(--item-bg);
+        transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), 
+                    box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1), 
+                    border-color 0.25s ease, 
+                    background-color 0.25s ease;
         position: relative;
-        background: rgba(128, 128, 128, 0.02); /* 给予极其微弱的基底区分度 */
     }
     
-    /* 悬停交互：同时适配白天和黑夜模式的微亮高亮 */
+    /* 悬停交互：优雅的轻微浮起与微阴影 */
     .pub-item:hover {
-        background: rgba(26, 13, 171, 0.04); 
-        border-color: rgba(26, 13, 171, 0.15);
+        transform: translateY(-3px);
+        background: var(--hover-bg); 
+        border-color: var(--hover-border);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .pub-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
     }
     
     .pub-link-wrapper {
         text-decoration: none;
-        color: inherit; /* 让包裹链接强制继承父级颜色，防止黑夜模式下瞎掉 */
+        color: inherit;
         display: block;
     }
 
     .pub-title {
         font-size: 1.1rem;
         font-weight: 600;
-        /* 白天默认接近纯黑，黑夜下通过继承展现纯白/浅灰 */
         color: inherit; 
         display: block;
         margin-bottom: 8px;
         transition: color 0.2s ease;
     }
-    /* 鼠标悬停时，标题优雅地转变为学术蓝 */
+    
+    /* 鼠标悬停时标题变为学术蓝 */
     .pub-item:hover .pub-title {
-        color: #4a90e2; /* 在黑夜模式下更亮、更清晰的蓝色 */
+        color: var(--primary-blue);
     }
     
     .pub-authors {
         font-size: 0.95rem;
         color: inherit;
-        opacity: 0.85; /* 使用透明度控制主次，完美适配多主题 */
+        opacity: 0.85;
         display: block;
         margin-bottom: 6px;
     }
     .me {
         font-weight: 700;
-        border-bottom: 2px solid #4a90e2;
+        border-bottom: 2px solid var(--primary-blue);
         padding-bottom: 1px;
     }
     
@@ -103,59 +130,82 @@ tags: [Page]
     
     .pub-metadata {
         font-size: 0.85rem;
-        margin-top: 12px;
+        margin-top: 14px;
         display: flex;
         align-items: center;
         gap: 12px;
         flex-wrap: wrap;
     }
     
-    /* --- 现代化徽章与小图标适配 --- */
+    /* --- 现代化徽章与 DOI 按钮设计 --- */
     .badge {
         font-size: 0.75rem;
-        padding: 2px 8px;
-        border-radius: 4px;
-        background: rgba(128, 128, 128, 0.15);
+        padding: 3px 10px;
+        border-radius: 6px;
+        background: rgba(128, 128, 128, 0.12);
         color: inherit;
         opacity: 0.9;
         font-weight: 500;
     }
     .badge.highlight {
-        background: rgba(198, 40, 40, 0.15);
+        background: rgba(198, 40, 40, 0.12);
         color: #ef5350;
     }
-    .badge.status {
-        background: rgba(46, 125, 50, 0.15);
-        color: #66bb6a;
-    }
-    
+
     .doi-inline-link {
-        color: #2e7d32; /* 稍作提亮的学术绿，保证黑夜下的可见度 */
+        color: #2e7d32;
         text-decoration: none;
         font-weight: 500;
         display: inline-flex;
         align-items: center;
         gap: 5px;
+        padding: 2px 8px;
+        border-radius: 6px;
+        background: rgba(46, 125, 50, 0.06);
+        transition: all 0.2s ease;
     }
-    /* 黑夜模式下微调 DOI 绿色的亮度和可见度 */
+    
     @media (prefers-color-scheme: dark) {
-        .doi-inline-link { color: #81c784; }
+        .doi-inline-link { 
+            color: #81c784; 
+            background: rgba(129, 199, 132, 0.08);
+        }
     }
+    
     .doi-inline-link:hover {
+        background: rgba(46, 125, 50, 0.12);
         text-decoration: underline;
+    }
+    @media (prefers-color-scheme: dark) {
+        .doi-inline-link:hover {
+            background: rgba(129, 199, 132, 0.15);
+        }
     }
 
     /* --- 底部 Scholar 链接 --- */
     .scholar-footer {
         margin-top: 60px;
-        padding: 30px;
+        padding: 40px 20px;
         border-top: 1px solid rgba(128, 128, 128, 0.15);
         text-align: center;
         font-size: 0.95rem;
     }
 
+    .scholar-btn {
+        color: var(--primary-blue); 
+        text-decoration: none; 
+        font-weight: 500; 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        transition: opacity 0.2s ease;
+    }
+    .scholar-btn:hover {
+        opacity: 0.8;
+    }
+
     @media (max-width: 600px) {
-        .pub-item { padding: 12px; margin-bottom: 20px; }
+        .pub-item { padding: 16px; margin-bottom: 18px; }
         .publications-container { padding: 0 12px; }
     }
 </style>
@@ -169,6 +219,21 @@ tags: [Page]
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
+
+    <div class="pub-item">
+        <a href="https://doi.org/" target="_blank" class="pub-link-wrapper">
+            <span class="pub-title">Modelling state-level crash fatalities by a network-constrained inhomogeneous poisson point process</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Liu, X., Wang, S., Ma, T. F., Yang, X., & Goel, V.</span>
+            <span class="pub-venue">Applied Geography, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">Journal</span>
+                <span class="doi-inline-link">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi link
+                </span>
+            </div>
+        </a>
+    </div>
 
     <div class="pub-item">
         <a href="https://doi.org/10.1109/LGRS.2026.3693969" target="_blank" class="pub-link-wrapper">
@@ -264,22 +329,8 @@ tags: [Page]
         </a>
     </div>
 
-    <h2 class="section-header">Working Papers</h2>
-
-    <div class="pub-item">
-        <span class="pub-title">Spatial Model of Crash Fatalities by Examining Effects of Infrastructural Factors: A Case Study on South Carolina</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span> (Co-first author)</span>
-        <span class="pub-venue">Under Review</span>
-        <div class="pub-metadata">
-            <span class="badge status">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-right:3px;"><path d="M20 6L9 17l-5-5"></path></svg>
-                Under Review
-            </span>
-        </div>
-    </div>
-
     <div class="scholar-footer">
-        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" target="_blank" style="color: #4a90e2; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+        <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" target="_blank" class="scholar-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
             Google Scholar Profile
         </a>
