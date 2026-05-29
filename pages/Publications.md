@@ -221,7 +221,7 @@ tags: [Page]
     <h2 class="section-header">Journal Articles</h2>
 
     <div class="pub-item">
-        <a href="https://doi.org/" target="_blank" class="pub-link-wrapper">
+        <a href="https://doi.org/10.1016/j.apgeog.2026.104053" target="_blank" class="pub-link-wrapper">
             <span class="pub-title">Modelling state-level crash fatalities by a network-constrained inhomogeneous poisson point process</span>
             <span class="pub-authors"><span class="me">Chen, P.</span>, Liu, X., Wang, S., Ma, T. F., Yang, X., & Goel, V.</span>
             <span class="pub-venue">Applied Geography, 2026</span>
