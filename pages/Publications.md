@@ -198,6 +198,23 @@ tags: [Page]
         .doi-link-btn { margin-left: 0; width: 100%; margin-top: 5px; justify-content: center; }
     }
 
+        /* 在卡片底部间隙中插入一条贯穿的线 */
+    .pub-item::after {
+        content: "";
+        position: absolute;
+        bottom: -21px; /* 负 margin + 1px，让线位于间隙正中间 */
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--card-border);
+        z-index: 1;
+    }
+    
+    /* 最后一个卡片不需要分割线 */
+    .pub-item:last-child::after {
+        display: none;
+    }
+    
     /* --- Footer --- */
     .scholar-footer {
         margin-top: 70px;
@@ -245,14 +262,6 @@ tags: [Page]
             </div>
         </a>
 
-        <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item featured-card">
-            <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
-            <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., et al.</span>
-            <span class="pub-venue">International Journal of Remote Sensing, 2025</span>
-            <div class="pub-metadata">
-                <span class="badge highlight">Cover Article</span>
-            </div>
-        </a>
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
