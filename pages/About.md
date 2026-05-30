@@ -227,8 +227,8 @@ tags: [Page]
             <span class="entry-date">2020 – 2024</span>
         </div>
         <div class="entry-sub">Wuhan University of Technology, China</div>
-        <div> Advisor: <a href="https://baike.baidu.com/item/%E5%B4%94%E5%B7%8D/7542643" target="_blank" style="color:#4a90e2; text-decoration:none;">Prof. Wei Cui</a></div>
-        <div class="entry-details">Thesis: <em>Transformer-based geographic scene description</div>
+            Thesis: <em>Transformer-based geographic scene description <br>
+            Advisor: <a href="https://baike.baidu.com/item/%E5%B4%94%E5%B7%8D/7542643" target="_blank" style="color:#4a90e2; text-decoration:none;">Prof. Wei Cui</a>
     </div>
 
     <h2 class="section-title">Research & Internship</h2>
