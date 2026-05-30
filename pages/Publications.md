@@ -6,15 +6,16 @@ tags: [Page]
 ---
 
 <style>
-    /* --- 核心全局变量（白天与黑夜模式平滑过渡） --- */
+    /* --- 核心全局变量（白天与黑夜模式物理质感微调） --- */
     :root {
         --accent-blue: #4a90e2;
-        --card-bg: rgba(128, 128, 128, 0.02);
+        --card-bg: #ffffff; /* 白天使用纯白卡片底色 */
         --card-hover-bg: rgba(74, 144, 226, 0.04);
-        --card-border: rgba(128, 128, 128, 0.15);
+        --card-border: rgba(0, 0, 0, 0.08); /* 白天加深边框线，强化物理边界 */
         --card-hover-border: rgba(74, 144, 226, 0.3);
-        --tag-bg: rgba(128, 128, 128, 0.08);
-        --shadow-hover: rgba(0, 0, 0, 0.05);
+        --tag-bg: rgba(0, 0, 0, 0.05);
+        --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); /* 白天引入微量基础阴影，让卡片间隙极度明显 */
+        --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.06);
     }
     
     @media (prefers-color-scheme: dark) {
@@ -25,7 +26,8 @@ tags: [Page]
             --card-border: rgba(255, 255, 255, 0.1);
             --card-hover-border: rgba(100, 181, 246, 0.35);
             --tag-bg: rgba(255, 255, 255, 0.08);
-            --shadow-hover: rgba(0, 0, 0, 0.3);
+            --card-shadow: none; /* 黑夜模式保持纯扁平 */
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
     }
 
@@ -76,7 +78,7 @@ tags: [Page]
         background: var(--card-border);
     }
 
-    /* --- 精选模块双列平铺栅格 --- */
+    /* --- 精选模块平铺栅格 --- */
     .featured-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -92,12 +94,13 @@ tags: [Page]
         border-top: 3px solid var(--accent-blue) !important;
     }
 
-    /* --- 现代化出版物卡片组件（带来明确的间隔与高级质感） --- */
+    /* --- 独立出版物卡片组件（大幅强化物理间隔感） --- */
     .pub-item {
-        margin-bottom: 20px; /* 让每个卡片之间有极其明确利落的物理缝隙 */
-        padding: 22px; 
+        margin-bottom: 22px; /* 每张卡片之间拥有绝对清晰利落的物理缝隙 */
+        padding: 24px; 
         background: var(--card-bg);
         border: 1px solid var(--card-border);
+        box-shadow: var(--card-shadow);
         border-radius: 8px;
         position: relative;
         display: block;
@@ -105,16 +108,16 @@ tags: [Page]
         color: inherit;
         transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
                     box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
-                    background-color 0.25s ease, 
-                    border-color 0.25s ease;
+                    background-color 0.2s ease, 
+                    border-color 0.2s ease;
     }
     
-    /* 悬停微动效：卡片轻微浮起，背景和边框过渡到微亮状态 */
+    /* 悬停微动效 */
     .pub-item:hover {
         transform: translateY(-2px);
         background: var(--card-hover-bg);
         border-color: var(--card-hover-border);
-        box-shadow: 0 8px 20px var(--shadow-hover);
+        box-shadow: var(--shadow-hover);
     }
 
     .pub-title {
@@ -232,6 +235,15 @@ tags: [Page]
             <span class="pub-venue">Applied Geography, 2026</span>
             <div class="pub-metadata">
                 <span class="badge">Spatial Statistics</span>
+            </div>
+        </a>
+
+        <a href="https://doi.org/10.2192/URSUS-D-25-00010" target="_blank" class="pub-item featured-card">
+            <span class="pub-title">Intelligent bear deterrence system based on computer vision: Reducing human–bear conflicts in remote areas</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Fei, T., Kupfer, J. A., et al.</span>
+            <span class="pub-venue">Ursus, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">Wlidlife</span>
             </div>
         </a>
 
