@@ -6,20 +6,26 @@ tags: [Page]
 ---
 
 <style>
-    /* --- 核心全局变量（通杀白天与黑夜模式） --- */
+    /* --- 核心全局变量（白天与黑夜模式平滑过渡） --- */
     :root {
         --accent-blue: #4a90e2;
-        --text-color: #333333;
-        --border-soft: rgba(128, 128, 128, 0.15);
+        --card-bg: rgba(128, 128, 128, 0.02);
+        --card-hover-bg: rgba(74, 144, 226, 0.04);
+        --card-border: rgba(128, 128, 128, 0.15);
+        --card-hover-border: rgba(74, 144, 226, 0.3);
         --tag-bg: rgba(128, 128, 128, 0.08);
+        --shadow-hover: rgba(0, 0, 0, 0.05);
     }
     
     @media (prefers-color-scheme: dark) {
         :root {
             --accent-blue: #64b5f6;
-            --text-color: #f5f5f5;
-            --border-soft: rgba(255, 255, 255, 0.12);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-hover-bg: rgba(100, 181, 246, 0.06);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover-border: rgba(100, 181, 246, 0.35);
             --tag-bg: rgba(255, 255, 255, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.3);
         }
     }
 
@@ -32,14 +38,14 @@ tags: [Page]
         padding: 0 10px;
     }
 
-    /* --- 顶部的研究领域（回归纯粹的静态高级感） --- */
+    /* --- 顶部的研究领域静态胶囊 --- */
     .interests-list {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
         margin-bottom: 40px;
         padding-bottom: 20px;
-        border-bottom: 1px dashed var(--border-soft);
+        border-bottom: 1px dashed var(--card-border);
     }
     .interest-item {
         background: var(--tag-bg);
@@ -53,12 +59,12 @@ tags: [Page]
 
     /* --- 区域大标题 --- */
     .section-header {
-        margin: 50px 0 30px 0;
-        font-size: 1.3rem;
+        margin: 50px 0 25px 0;
+        font-size: 1.25rem;
         font-weight: 700;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
-        opacity: 0.9;
+        opacity: 0.85;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -67,44 +73,52 @@ tags: [Page]
         content: "";
         flex: 1;
         height: 1px;
-        background: var(--border-soft);
+        background: var(--card-border);
     }
 
-    /* --- 精选模块双列平铺（具有明确边界的现代栅格） --- */
+    /* --- 精选模块双列平铺栅格 --- */
     .featured-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        gap: 20px;
         margin-bottom: 20px;
     }
     @media (max-width: 768px) {
         .featured-grid { grid-template-columns: 1fr; }
     }
     
-    .featured-box {
-        border-top: 3px solid var(--accent-blue) !important; /* 精选文章顶部带有蓝色高亮线 */
-        padding-top: 15px !important;
+    /* 精选卡片顶部带有一条精致的高亮边框 */
+    .featured-card {
+        border-top: 3px solid var(--accent-blue) !important;
     }
 
-    /* --- 出版物条目布局：强化物理间隔（Clear Gaps & Borders） --- */
+    /* --- 现代化出版物卡片组件（带来明确的间隔与高级质感） --- */
     .pub-item {
-        margin-bottom: 0;
-        padding: 24px 0; /* 垂直方向拉开，给予每篇论文充分的视觉呼吸感 */
-        border-bottom: 1px solid var(--border-soft); /* 每篇论文之间有极其清晰的分割界线 */
+        margin-bottom: 20px; /* 让每个卡片之间有极其明确利落的物理缝隙 */
+        padding: 22px; 
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
         position: relative;
         display: block;
         text-decoration: none;
         color: inherit;
-        transition: opacity 0.2s ease;
+        transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                    box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                    background-color 0.25s ease, 
+                    border-color 0.25s ease;
     }
     
-    /* 悬停微动效：纯粹通过降低其余条目或让当前条目更加利落来提供暗示 */
+    /* 悬停微动效：卡片轻微浮起，背景和边框过渡到微亮状态 */
     .pub-item:hover {
-        opacity: 0.95;
+        transform: translateY(-2px);
+        background: var(--card-hover-bg);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 8px 20px var(--shadow-hover);
     }
 
     .pub-title {
-        font-size: 1.1rem;
+        font-size: 1.08rem;
         font-weight: 600;
         color: inherit; 
         margin-bottom: 8px;
@@ -112,11 +126,11 @@ tags: [Page]
         transition: color 0.2s ease;
     }
     .pub-item:hover .pub-title {
-        color: var(--accent-blue); /* 悬停时标题变为清澈的学术蓝 */
+        color: var(--accent-blue);
     }
     
     .pub-authors {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         color: inherit;
         opacity: 0.85;
         display: block;
@@ -129,19 +143,19 @@ tags: [Page]
     }
     
     .pub-venue {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         color: inherit;
         opacity: 0.65;
         font-style: italic;
     }
     
-    /* --- 元数据徽章与独立 DOI 区域 --- */
+    /* --- 卡片内元数据及标签布局 --- */
     .pub-metadata {
         font-size: 0.82rem;
         margin-top: 14px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-wrap: wrap;
     }
     
@@ -158,8 +172,9 @@ tags: [Page]
         color: #ef5350;
     }
 
+    /* 优雅居右的独立 DOI 块 */
     .doi-link-btn {
-        margin-left: auto; /* 优雅地推到条目的最右侧 */
+        margin-left: auto; 
         color: #2e7d32;
         text-decoration: none;
         font-weight: 600;
@@ -174,10 +189,9 @@ tags: [Page]
     @media (prefers-color-scheme: dark) {
         .doi-link-btn { color: #81c784; background: rgba(129, 199, 132, 0.08); }
     }
-    .doi-link-btn:hover {
+    .pub-item:hover .doi-link-btn {
         background: var(--accent-blue);
         color: white !important;
-        text-decoration: none;
     }
     @media (max-width: 600px) {
         .doi-link-btn { margin-left: 0; width: 100%; margin-top: 5px; justify-content: center; }
@@ -187,7 +201,7 @@ tags: [Page]
     .scholar-footer {
         margin-top: 70px;
         padding: 40px 0;
-        border-top: 1px solid var(--border-soft);
+        border-top: 1px solid var(--card-border);
         text-align: center;
         font-size: 0.95rem;
     }
@@ -212,7 +226,7 @@ tags: [Page]
     <h2 class="section-header">Featured Research</h2>
     <div class="featured-grid">
         
-        <a href="https://doi.org/10.1016/j.apgeog.2026.104053" target="_blank" class="pub-item featured-box" style="border-bottom: none;">
+        <a href="https://doi.org/10.1016/j.apgeog.2026.104053" target="_blank" class="pub-item featured-card">
             <span class="pub-title">Modelling state-level crash fatalities by a network-constrained inhomogeneous poisson point process</span>
             <span class="pub-authors"><span class="me">Chen, P.</span>, Liu, X., Wang, S., et al.</span>
             <span class="pub-venue">Applied Geography, 2026</span>
@@ -221,7 +235,7 @@ tags: [Page]
             </div>
         </a>
 
-        <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item featured-box" style="border-bottom: none;">
+        <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item featured-card">
             <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
             <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., et al.</span>
             <span class="pub-venue">International Journal of Remote Sensing, 2025</span>
