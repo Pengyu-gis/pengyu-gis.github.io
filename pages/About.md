@@ -201,16 +201,16 @@ tags: [Page]
     <h2 class="section-title">Education</h2>
     
     <div class="entry">
-        <div class="entry-header">
-            <span class="entry-main">M.S. in Geographic Information Science</span>
-            <span class="entry-date">2024 – 2026</span>
+            <div class="entry-header">
+                <span class="entry-main">M.S. in Geographic Information Science</span>
+                <span class="entry-date">2024 – 2026</span>
+            </div>
+            <div class="entry-sub">University of South Carolina, Columbia, SC</div>
+            <div class="entry-details">
+                Thesis: <em>VLM4S: A Vision-Language Model Framework for Geographically and Environmentally Informed Soundscape Assessment</em><br>
+                Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" target="_blank" style="color:#4a90e2; text-decoration:none;">Dr. Sicheng Wang</a>
+            </div>
         </div>
-        <div class="entry-sub">University of South Carolina, Columbia, SC</div>
-        <div class="entry-details">
-            Thesis: VLM4S: A Vision-Language Model Framework for Geographically and Environmentally Informed Soundscape Assessment<br>
-            Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" target="_blank" style="color:#4a90e2; text-decoration:none;">Dr. Sicheng Wang</a>
-        </div>
-    </div>
 
     <div class="entry">
         <div class="entry-header">
@@ -228,7 +228,7 @@ tags: [Page]
         </div>
         <div class="entry-sub">Wuhan University of Technology, China</div>
         <div class="entry-details">
-            Thesis: <em>Transformer-based geographic scene description <br>
+            Thesis: <em>Transformer-based geographic scene description</em><br>
             Advisor: <a href="https://baike.baidu.com/item/%E5%B4%94%E5%B7%8D/7542643" target="_blank" style="color:#4a90e2; text-decoration:none;">Prof. Wei Cui</a>
         </div>
     </div>
