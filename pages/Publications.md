@@ -239,6 +239,7 @@ tags: [Page]
         <span class="pub-venue">Applied Geography, 2026</span>
         <div class="pub-metadata">
             <span class="badge">Spatial Statistics</span>
+            <span class="badge">Traffic</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.1016/j.apgeog.2026.104053
@@ -253,6 +254,7 @@ tags: [Page]
         <div class="pub-metadata">
             <span class="badge">GeoAI</span>
             <span class="badge">Remote Sensing</span>
+            <span class="badge">Canopy</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.1109/LGRS.2026.3693969
@@ -265,7 +267,7 @@ tags: [Page]
         <span class="pub-authors"><span class="me">Chen, P.</span>, Fei, T., Kupfer, J. A., Du, Y., Yi, J., & Li, Y.</span>
         <span class="pub-venue">Ursus, 2026</span>
         <div class="pub-metadata">
-            <span class="badge">Remote Sensing</span>
+            <span class="badge">Wlidlife</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.2192/URSUS-D-25-00010
@@ -279,7 +281,7 @@ tags: [Page]
         <span class="pub-venue">Transactions in GIS, 2026</span>
         <div class="pub-metadata">
             <span class="badge">GeoAI</span>
-            <span class="badge">Remote Sensing</span>
+            <span class="badge">Street View</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.1111/tgis.70246
@@ -307,7 +309,7 @@ tags: [Page]
         <span class="pub-authors">Chen, Y., Nelson, J. K., ..., <span class="me">Chen, P.</span></span>
         <span class="pub-venue">Cartography and Geographic Information Science, 2025</span>
         <div class="pub-metadata">
-            <span class="badge">GeoAI</span>
+            <span class="badge">GISphere</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.1080/15230406.2025.25675643
@@ -320,7 +322,7 @@ tags: [Page]
         <span class="pub-authors">Gu, X., <span class="me">Chen, P.</span>, & Fan, C.</span>
         <span class="pub-venue">Journal of Transport Geography, 114, 103755, 2024</span>
         <div class="pub-metadata">
-            <span class="badge">GeoAI</span>
+            <span class="badge">population mobility</span>
             <span class="doi-link-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 doi.org/10.1016/j.jtrangeo.2023.103755
