@@ -9,25 +9,25 @@ tags: [Page]
     /* --- 核心全局变量 --- */
     :root {
         --accent-blue: #4a90e2;
-        --card-bg: #ffffff;          /* 纯白背景 */
-        --card-hover-bg: #f5f9ff;    /* 淡蓝悬停背景 */
-        --card-border: #c0c0c0;      /* ← 加深：从 #dcdcdc 改为 #c0c0c0 */
+        --card-bg: #f9f9f9;
+        --card-hover-bg: rgba(74, 144, 226, 0.03);
+        --card-border: #dcdcdc;
         --card-hover-border: #4a90e2;
         --tag-bg: rgba(0, 0, 0, 0.06);
-        --card-shadow: none;         /* 移除阴影，避免干扰线条 */
-        --shadow-hover: none;
+        --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.01); 
+        --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.06);
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
             --accent-blue: #64b5f6;
-            --card-bg: #1a1a1a;
-            --card-hover-bg: rgba(100, 181, 246, 0.08);
-            --card-border: rgba(255, 255, 255, 0.25);  /* 暗色模式下也加深 */
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover-bg: rgba(100, 181, 246, 0.06);
+            --card-border: rgba(255, 255, 255, 0.15);
             --card-hover-border: #64b5f6;
             --tag-bg: rgba(255, 255, 255, 0.08);
             --card-shadow: none;
-            --shadow-hover: none;
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
     }
 
@@ -99,12 +99,14 @@ tags: [Page]
         padding: 24px; 
         background: var(--card-bg);
         border: 1px solid var(--card-border);
+        box-shadow: var(--card-shadow);
         border-radius: 8px;
         position: relative;
         display: block;
         text-decoration: none;
         color: inherit;
         transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                    box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
                     background-color 0.2s ease, 
                     border-color 0.2s ease;
     }
@@ -113,28 +115,16 @@ tags: [Page]
         transform: translateY(-2px);
         background: var(--card-hover-bg);
         border-color: var(--card-hover-border); 
+        box-shadow: var(--shadow-hover);
     }
 
     /* --- Journal Articles 列表：分割线样式 --- */
-    .journal-list {
-        /* 给整个列表一个极淡的背景，让分割线更突出 */
-        background: #fafafa;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .journal-list {
-            background: #141414;
-        }
-    }
-
     .journal-list .pub-item {
         margin-bottom: 0;
         padding: 24px;
-        background: transparent;     /* 透明，让列表背景透出 */
+        background: var(--card-bg);
         border: none;
-        border-bottom: 1.5px solid var(--card-border);  /* ← 加粗：1.5px */
+        border-bottom: 1px solid var(--card-border);
         box-shadow: none;
         border-radius: 0;
         position: relative;
@@ -147,7 +137,7 @@ tags: [Page]
 
     /* 第一个卡片顶部加线，形成封闭列表 */
     .journal-list .pub-item:first-child {
-        border-top: 1.5px solid var(--card-border);
+        border-top: 1px solid var(--card-border);
     }
 
     /* 悬停时：背景微变 + 分割线变色 */
