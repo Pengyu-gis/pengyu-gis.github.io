@@ -6,16 +6,16 @@ tags: [Page]
 ---
 
 <style>
-    /* --- 核心全局变量（白天与黑夜模式物理质感微调） --- */
+    /* --- 核心全局变量（彻底强化白模下的物理边界线） --- */
     :root {
         --accent-blue: #4a90e2;
-        --card-bg: #ffffff; /* 白天使用纯白卡片底色 */
-        --card-hover-bg: rgba(74, 144, 226, 0.04);
-        --card-border: rgba(0, 0, 0, 0.08); /* 白天加深边框线，强化物理边界 */
-        --card-hover-border: rgba(74, 144, 226, 0.3);
+        --card-bg: #fcfcfc; /* 白天使用微微带有高级灰调的浅白，与系统纯白底色拉开差距 */
+        --card-hover-bg: rgba(74, 144, 226, 0.03);
+        --card-border: #e0e0e0; /* 在白天给卡片框上一条非常清晰的实体分割线 */
+        --card-hover-border: #4a90e2; /* 悬停时边框线变成标志性的学术蓝 */
         --tag-bg: rgba(0, 0, 0, 0.05);
-        --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); /* 白天引入微量基础阴影，让卡片间隙极度明显 */
-        --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.06);
+        --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.02); 
+        --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.06);
     }
     
     @media (prefers-color-scheme: dark) {
@@ -23,10 +23,10 @@ tags: [Page]
             --accent-blue: #64b5f6;
             --card-bg: rgba(255, 255, 255, 0.02);
             --card-hover-bg: rgba(100, 181, 246, 0.06);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --card-hover-border: rgba(100, 181, 246, 0.35);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --card-hover-border: #64b5f6;
             --tag-bg: rgba(255, 255, 255, 0.08);
-            --card-shadow: none; /* 黑夜模式保持纯扁平 */
+            --card-shadow: none;
             --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
     }
@@ -89,17 +89,17 @@ tags: [Page]
         .featured-grid { grid-template-columns: 1fr; }
     }
     
-    /* 精选卡片顶部带有一条精致的高亮边框 */
+    /* 精选卡片顶部额外带有一条精致的高亮彩色边框 */
     .featured-card {
         border-top: 3px solid var(--accent-blue) !important;
     }
 
-    /* --- 独立出版物卡片组件（大幅强化物理间隔感） --- */
+    /* --- 独立出版物卡片组件（带来绝对明确的边缘线与间隔） --- */
     .pub-item {
-        margin-bottom: 22px; /* 每张卡片之间拥有绝对清晰利落的物理缝隙 */
+        margin-bottom: 20px; /* 让每个卡片箱体之间空出干净的距离 */
         padding: 24px; 
         background: var(--card-bg);
-        border: 1px solid var(--card-border);
+        border: 1px solid var(--card-border); /* 彻底明朗化的四周实体边框线 */
         box-shadow: var(--card-shadow);
         border-radius: 8px;
         position: relative;
@@ -116,7 +116,7 @@ tags: [Page]
     .pub-item:hover {
         transform: translateY(-2px);
         background: var(--card-hover-bg);
-        border-color: var(--card-hover-border);
+        border-color: var(--card-hover-border); /* 线条颜色高亮变化 */
         box-shadow: var(--shadow-hover);
     }
 
@@ -247,14 +247,6 @@ tags: [Page]
             </div>
         </a>
 
-        <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item featured-card">
-            <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
-            <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., et al.</span>
-            <span class="pub-venue">International Journal of Remote Sensing, 2025</span>
-            <div class="pub-metadata">
-                <span class="badge highlight">Cover Article</span>
-            </div>
-        </a>
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
