@@ -6,13 +6,13 @@ tags: [Page]
 ---
 
 <style>
-    /* --- 核心全局变量（彻底让默认状态下的物理卡片线条显形） --- */
+    /* --- 核心全局变量 --- */
     :root {
         --accent-blue: #4a90e2;
-        --card-bg: #f9f9f9; /* 默认状态下带有一点点浅灰底色，与纯白背景划开界限 */
+        --card-bg: #f9f9f9;
         --card-hover-bg: rgba(74, 144, 226, 0.03);
-        --card-border: #dcdcdc; /* 默认状态下直接焊死、清晰可见的实体边框线 */
-        --card-hover-border: #4a90e2; /* 鼠标悬停时过渡为清澈的学术蓝 */
+        --card-border: #dcdcdc;
+        --card-hover-border: #4a90e2;
         --tag-bg: rgba(0, 0, 0, 0.06);
         --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.01); 
         --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.06);
@@ -23,7 +23,7 @@ tags: [Page]
             --accent-blue: #64b5f6;
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-hover-bg: rgba(100, 181, 246, 0.06);
-            --card-border: rgba(255, 255, 255, 0.15); /* 暗色模式下的默认框线 */
+            --card-border: rgba(255, 255, 255, 0.15);
             --card-hover-border: #64b5f6;
             --tag-bg: rgba(255, 255, 255, 0.08);
             --card-shadow: none;
@@ -78,7 +78,7 @@ tags: [Page]
         background: var(--card-border);
     }
 
-    /* --- 精选模块平铺栅格 --- */
+    /* --- 精选模块平铺栅格（保持独立卡片样式） --- */
     .featured-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -93,12 +93,12 @@ tags: [Page]
         border-top: 3px solid var(--accent-blue) !important;
     }
 
-    /* --- 实体出版物卡片（默认即有完美的边缘线与明显的空间间隔） --- */
-    .pub-item {
-        margin-bottom: 20px; /* 卡片箱体之间的明确物理缝隙 */
+    /* --- 精选卡片：保留独立外框+圆角 --- */
+    .featured-grid .pub-item {
+        margin-bottom: 0;
         padding: 24px; 
         background: var(--card-bg);
-        border: 1px solid var(--card-border); /* 默认显式可见的实体框线，不再隐形 */
+        border: 1px solid var(--card-border);
         box-shadow: var(--card-shadow);
         border-radius: 8px;
         position: relative;
@@ -111,12 +111,46 @@ tags: [Page]
                     border-color 0.2s ease;
     }
     
-    /* 悬停微动效 */
-    .pub-item:hover {
+    .featured-grid .pub-item:hover {
         transform: translateY(-2px);
         background: var(--card-hover-bg);
         border-color: var(--card-hover-border); 
         box-shadow: var(--shadow-hover);
+    }
+
+    /* --- Journal Articles 列表：分割线样式 --- */
+    .journal-list .pub-item {
+        margin-bottom: 0;
+        padding: 24px;
+        background: var(--card-bg);
+        border: none;
+        border-bottom: 1px solid var(--card-border);
+        box-shadow: none;
+        border-radius: 0;
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: background-color 0.2s ease, 
+                    border-color 0.2s ease;
+    }
+    
+    /* 第一个卡片顶部加线，形成封闭列表 */
+    .journal-list .pub-item:first-child {
+        border-top: 1px solid var(--card-border);
+    }
+    
+    /* 悬停时：背景微变 + 分割线变色 */
+    .journal-list .pub-item:hover {
+        background: var(--card-hover-bg);
+        border-bottom-color: var(--card-hover-border);
+    }
+    .journal-list .pub-item:first-child:hover {
+        border-top-color: var(--card-hover-border);
+    }
+    /* 悬停时让下一张卡片的顶边也变色，形成连续感 */
+    .journal-list .pub-item:hover + .pub-item {
+        border-top-color: var(--card-hover-border);
     }
 
     .pub-title {
@@ -198,23 +232,6 @@ tags: [Page]
         .doi-link-btn { margin-left: 0; width: 100%; margin-top: 5px; justify-content: center; }
     }
 
-        /* 在卡片底部间隙中插入一条贯穿的线 */
-    .pub-item::after {
-        content: "";
-        position: absolute;
-        bottom: -21px; /* 负 margin + 1px，让线位于间隙正中间 */
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--card-border);
-        z-index: 1;
-    }
-    
-    /* 最后一个卡片不需要分割线 */
-    .pub-item:last-child::after {
-        display: none;
-    }
-    
     /* --- Footer --- */
     .scholar-footer {
         margin-top: 70px;
@@ -265,103 +282,106 @@ tags: [Page]
     </div>
 
     <h2 class="section-header">Journal Articles</h2>
+    <div class="journal-list">
 
-    <a href="https://doi.org/10.1016/j.apgeog.2026.104053" target="_blank" class="pub-item">
-        <span class="pub-title">Modelling state-level crash fatalities by a network-constrained inhomogeneous poisson point process</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span>, Liu, X., Wang, S., Ma, T. F., Yang, X., & Goel, V.</span>
-        <span class="pub-venue">Applied Geography, 2026</span>
-        <div class="pub-metadata">
-            <span class="badge">Spatial Statistics</span>
-            <span class="badge">Traffic</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1016/j.apgeog.2026.104053
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1016/j.apgeog.2026.104053" target="_blank" class="pub-item">
+            <span class="pub-title">Modelling state-level crash fatalities by a network-constrained inhomogeneous poisson point process</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Liu, X., Wang, S., Ma, T. F., Yang, X., & Goel, V.</span>
+            <span class="pub-venue">Applied Geography, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">Spatial Statistics</span>
+                <span class="badge">Traffic</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1016/j.apgeog.2026.104053
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.1109/LGRS.2026.3693969" target="_blank" class="pub-item">
-        <span class="pub-title">FG-TreeSeg: Flow-Guided Tree Crown Segmentation without Instance Annotations</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span>, Lyu, F., Wang, S., & Wang, C.</span>
-        <span class="pub-venue">IEEE Geoscience and Remote Sensing Letters, 2026</span>
-        <div class="pub-metadata">
-            <span class="badge">GeoAI</span>
-            <span class="badge">Remote Sensing</span>
-            <span class="badge">Canopy</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1109/LGRS.2026.3693969
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1109/LGRS.2026.3693969" target="_blank" class="pub-item">
+            <span class="pub-title">FG-TreeSeg: Flow-Guided Tree Crown Segmentation without Instance Annotations</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Lyu, F., Wang, S., & Wang, C.</span>
+            <span class="pub-venue">IEEE Geoscience and Remote Sensing Letters, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">GeoAI</span>
+                <span class="badge">Remote Sensing</span>
+                <span class="badge">Canopy</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1109/LGRS.2026.3693969
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.2192/URSUS-D-25-00010" target="_blank" class="pub-item">
-        <span class="pub-title">Intelligent bear deterrence system based on computer vision: Reducing human–bear conflicts in remote areas</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span>, Fei, T., Kupfer, J. A., Du, Y., Yi, J., & Li, Y.</span>
-        <span class="pub-venue">Ursus, 2026</span>
-        <div class="pub-metadata">
-            <span class="badge">Wlidlife</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.2192/URSUS-D-25-00010
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.2192/URSUS-D-25-00010" target="_blank" class="pub-item">
+            <span class="pub-title">Intelligent bear deterrence system based on computer vision: Reducing human–bear conflicts in remote areas</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Fei, T., Kupfer, J. A., Du, Y., Yi, J., & Li, Y.</span>
+            <span class="pub-venue">Ursus, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">Wlidlife</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.2192/URSUS-D-25-00010
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.1111/tgis.70246" target="_blank" class="pub-item">
-        <span class="pub-title">Cross-Modal Urban Sensing: Evaluating Sound–Vision Alignment Across Street-Level and Aerial Imagery</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span>, Huang, X., Fei, T., & Wang, S.</span>
-        <span class="pub-venue">Transactions in GIS, 2026</span>
-        <div class="pub-metadata">
-            <span class="badge">GeoAI</span>
-            <span class="badge">Street View</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1111/tgis.70246
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1111/tgis.70246" target="_blank" class="pub-item">
+            <span class="pub-title">Cross-Modal Urban Sensing: Evaluating Sound–Vision Alignment Across Street-Level and Aerial Imagery</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Huang, X., Fei, T., & Wang, S.</span>
+            <span class="pub-venue">Transactions in GIS, 2026</span>
+            <div class="pub-metadata">
+                <span class="badge">GeoAI</span>
+                <span class="badge">Street View</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1111/tgis.70246
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item">
-        <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
-        <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., et al.</span>
-        <span class="pub-venue">International Journal of Remote Sensing, 2025</span>
-        <div class="pub-metadata">
-            <span class="badge">GeoAI</span>
-            <span class="badge">Remote Sensing</span>
-            <span class="badge highlight">Cover Article</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1080/01431161.2025.2534994
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1080/01431161.2025.2534994" target="_blank" class="pub-item">
+            <span class="pub-title">A GAN-enhanced deep learning framework for rooftop detection from historical aerial imagery</span>
+            <span class="pub-authors"><span class="me">Chen, P.</span>, Wang, S., Wang, C., et al.</span>
+            <span class="pub-venue">International Journal of Remote Sensing, 2025</span>
+            <div class="pub-metadata">
+                <span class="badge">GeoAI</span>
+                <span class="badge">Remote Sensing</span>
+                <span class="badge highlight">Cover Article</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1080/01431161.2025.2534994
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.1080/15230406.2025.25675643" target="_blank" class="pub-item">
-        <span class="pub-title">Where are GIScience faculty hired from? Analyzing faculty mobility and research themes through hiring networks</span>
-        <span class="pub-authors">Chen, Y., Nelson, J. K., ..., <span class="me">Chen, P.</span></span>
-        <span class="pub-venue">Cartography and Geographic Information Science, 2025</span>
-        <div class="pub-metadata">
-            <span class="badge">GISphere</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1080/15230406.2025.25675643
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1080/15230406.2025.25675643" target="_blank" class="pub-item">
+            <span class="pub-title">Where are GIScience faculty hired from? Analyzing faculty mobility and research themes through hiring networks</span>
+            <span class="pub-authors">Chen, Y., Nelson, J. K., ..., <span class="me">Chen, P.</span></span>
+            <span class="pub-venue">Cartography and Geographic Information Science, 2025</span>
+            <div class="pub-metadata">
+                <span class="badge">GISphere</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1080/15230406.2025.25675643
+                </span>
+            </div>
+        </a>
 
-    <a href="https://doi.org/10.1016/j.jtrangeo.2023.103755" target="_blank" class="pub-item">
-        <span class="pub-title">Socio-demographic inequalities in the impacts of extreme temperatures on population mobility</span>
-        <span class="pub-authors">Gu, X., <span class="me">Chen, P.</span>, & Fan, C.</span>
-        <span class="pub-venue">Journal of Transport Geography, 114, 103755, 2024</span>
-        <div class="pub-metadata">
-            <span class="badge">population mobility</span>
-            <span class="doi-link-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                doi.org/10.1016/j.jtrangeo.2023.103755
-            </span>
-        </div>
-    </a>
+        <a href="https://doi.org/10.1016/j.jtrangeo.2023.103755" target="_blank" class="pub-item">
+            <span class="pub-title">Socio-demographic inequalities in the impacts of extreme temperatures on population mobility</span>
+            <span class="pub-authors">Gu, X., <span class="me">Chen, P.</span>, & Fan, C.</span>
+            <span class="pub-venue">Journal of Transport Geography, 114, 103755, 2024</span>
+            <div class="pub-metadata">
+                <span class="badge">population mobility</span>
+                <span class="doi-link-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    doi.org/10.1016/j.jtrangeo.2023.103755
+                </span>
+            </div>
+        </a>
+
+    </div>
 
     <div class="scholar-footer">
         <a href="https://scholar.google.com/citations?user=3Y9YVSIAAAAJ" target="_blank" class="scholar-btn">
