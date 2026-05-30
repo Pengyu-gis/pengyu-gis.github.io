@@ -207,7 +207,7 @@ tags: [Page]
         </div>
         <div class="entry-sub">University of South Carolina, Columbia, SC</div>
         <div class="entry-details">
-            GPA: 3.82/4.0 | Teaching Assistant (Full Scholarship)<br>
+            Thesis: VLM4S: A Vision-Language Model Framework for Geographically and Environmentally Informed Soundscape Assessment<br>
             Advisor: <a href="https://scholar.google.com/citations?user=ul3VlbgAAAAJ" target="_blank" style="color:#4a90e2; text-decoration:none;">Dr. Sicheng Wang</a>
         </div>
     </div>
@@ -227,7 +227,8 @@ tags: [Page]
             <span class="entry-date">2020 – 2024</span>
         </div>
         <div class="entry-sub">Wuhan University of Technology, China</div>
-        <div class="entry-details">Thesis: <em>Transformer-based geographic scene description</em> | Advisor: Prof. Wei Cui</div>
+        <div> Advisor: <a href="https://baike.baidu.com/item/%E5%B4%94%E5%B7%8D/7542643" target="_blank" style="color:#4a90e2; text-decoration:none;">Prof. Wei Cui</a></div>
+        <div class="entry-details">Thesis: <em>Transformer-based geographic scene description</div>
     </div>
 
     <h2 class="section-title">Research & Internship</h2>
