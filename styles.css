@@ -127,97 +127,109 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .cv-entry .cv-place { margin-top:2px; font-size:.86rem; }
 .cv-entry p,.cv-entry li { font-size:.84rem; }
 @media (max-width:760px) { .cv-page.container { width:min(calc(100% - 32px),780px); } .about-top { grid-template-columns:1fr; gap:18px; } .about-top .about-photo { width:100%; max-width:420px; } .about-top .about-photo img { height:190px !important; } .cv-entry { grid-template-columns:1fr; gap:3px; } }
-/* ==================== About Page Header Optimization ==================== */
+/* ==================== About Page Header ==================== */
 .about-top {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 3rem;
-  align-items: center;
-  padding-bottom: 2.5rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 2.5rem !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 2.5rem !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.about-info {
+  flex: 1 !important;
 }
 
 .about-name {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 0.5rem 0;
-  letter-spacing: -0.02em;
+  font-size: 1.15rem !important;
+  line-height: 1.4 !important;
+  color: #111827 !important;
+  margin: 0 0 0.35rem 0 !important;
+}
+
+.about-name strong {
+  font-weight: 600 !important;
 }
 
 .about-name-cn {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #6b7280;
-  margin-left: 0.5rem;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  color: #6b7280 !important;
+  margin-left: 0.35rem !important;
 }
 
 .about-role {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #374151;
-  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+  margin: 0 0 0.2rem 0 !important;
+  line-height: 1.4 !important;
 }
 
 .about-affil {
-  font-size: 0.95rem;
-  color: #6b7280;
-  margin: 0 0 1.25rem 0;
+  font-size: 0.9rem !important;
+  color: #6b7280 !important;
+  margin: 0 0 1rem 0 !important;
 }
 
 .about-contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
 }
 
 .contact-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #374151;
-  background-color: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  border-radius: 9999px;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.25rem 0.65rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  background-color: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
 }
 
 .contact-pill:hover {
-  background-color: #111827;
-  color: #ffffff;
-  border-color: #111827;
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #111827 !important;
 }
 
 .about-photo {
-  margin: 0;
-  text-align: center;
+  flex-shrink: 0 !important;
+  width: 220px !important;
+  margin: 0 !important;
+  text-align: center !important;
 }
 
 .about-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100% !important;
+  height: 140px !important;
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  display: block !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 }
 
 .about-photo figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
+  margin-top: 0.35rem !important;
+  font-size: 0.72rem !important;
+  color: #9ca3af !important;
 }
 
 @media (max-width: 768px) {
   .about-top {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    flex-direction: column-reverse !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
   }
   .about-photo {
-    order: -1;
-    max-width: 260px;
+    width: 100% !important;
+    max-width: 240px !important;
   }
 }
