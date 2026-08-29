@@ -1,10 +1,8 @@
-# Pengyu Chen
-
-Personal academic website for Pengyu Chen.
+**Personal academic website for Pengyu Chen.**
 
 Visit: <https://pengyu-gis.github.io/>
 
-## Local preview
+**Local preview**
 
 ```powershell
 python -m http.server 8000
@@ -12,6 +10,6 @@ python -m http.server 8000
 
 Open <http://localhost:8000>.
 
-## Blog posts
+**Blog posts**
 
 Add Markdown files to `posts/` and register each post in `posts.json`.
