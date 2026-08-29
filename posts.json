@@ -1,0 +1,5 @@
+[
+  {"title":"Resurrecting History: GAN-Enhanced Rooftop Detection in 1979 Aerial Imagery","date":"2025-10-07","file":"posts/2025-10-7-GAN-Enhanced-Rooftop-Detection-for-historical-imagery.md","excerpt":"A GAN-enhanced deep learning workflow for detecting rooftops in historical aerial imagery.","tags":["Deep Learning","Remote Sensing"]},
+  {"title":"Spatial Analysis of Fatal Traffic Accidents Using Poisson Point Process","date":"2025-04-16","file":"posts/2025-04-16-Spatial-Analysis-of-Fatal-Traffic-Accidents-Using-Poisson-Point-Process.md","excerpt":"A spatial-statistical analysis of traffic fatalities and infrastructure in South Carolina.","tags":["Spatial Statistics","Transportation"]},
+  {"title":"Intelligent Bear Protection System on the Tibetan Plateau","date":"2023-10-31","file":"posts/2023-10-31-Intelligent-Bear-Protection-System.md","excerpt":"A computer-vision and IoT system designed to reduce human–bear conflict in remote areas.","tags":["Computer Vision","Conservation"]}
+]

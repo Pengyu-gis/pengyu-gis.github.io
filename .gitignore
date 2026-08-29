@@ -1,0 +1,5 @@
+.repo-reference/
+.DS_Store
+.jekyll-cache/
+_site/
+node_modules/
