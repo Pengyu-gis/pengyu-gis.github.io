@@ -127,3 +127,97 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .cv-entry .cv-place { margin-top:2px; font-size:.86rem; }
 .cv-entry p,.cv-entry li { font-size:.84rem; }
 @media (max-width:760px) { .cv-page.container { width:min(calc(100% - 32px),780px); } .about-top { grid-template-columns:1fr; gap:18px; } .about-top .about-photo { width:100%; max-width:420px; } .about-top .about-photo img { height:190px !important; } .cv-entry { grid-template-columns:1fr; gap:3px; } }
+/* ==================== About Page Header Optimization ==================== */
+.about-top {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: center;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.about-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.about-name-cn {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-left: 0.5rem;
+}
+
+.about-role {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 0.25rem 0;
+}
+
+.about-affil {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0 0 1.25rem 0;
+}
+
+.about-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-pill:hover {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.about-photo {
+  margin: 0;
+  text-align: center;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.about-photo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .about-top {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .about-photo {
+    order: -1;
+    max-width: 260px;
+  }
+}
