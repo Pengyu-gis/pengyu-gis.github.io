@@ -111,3 +111,19 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .cv-entry p { margin-top:5px; }
 .cv-entry ul { margin-top:7px; }
 @media (max-width:760px) { .about-contact { gap:8px 14px; } .about-photo img { max-height:240px; } }
+
+/* Dense CV layout. */
+.cv-page.container { width:min(calc(100% - 48px),780px); max-width:none; }
+.about-top { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:28px; align-items:start; margin-bottom:30px; }
+.about-top .about-photo { width:270px; margin:0; }
+.about-top .about-photo img { width:100% !important; max-width:100% !important; height:170px !important; max-height:none; object-fit:cover; filter:grayscale(100%) !important; }
+.about-top .about-photo figcaption { margin-top:5px; font-size:.7rem; }
+.about-contact { display:flex; gap:8px 16px; }
+.about-contact a { display:inline-block; }
+.cv-entry { display:grid; grid-template-columns:130px minmax(0,1fr); gap:16px; padding:0 0 14px; margin:0 0 14px; }
+.cv-entry > time { color:var(--muted); font-size:.78rem; line-height:1.45; }
+.cv-entry > div { min-width:0; }
+.cv-entry h3 { margin:0; font-size:.92rem; line-height:1.45; }
+.cv-entry .cv-place { margin-top:2px; font-size:.86rem; }
+.cv-entry p,.cv-entry li { font-size:.84rem; }
+@media (max-width:760px) { .cv-page.container { width:min(calc(100% - 32px),780px); } .about-top { grid-template-columns:1fr; gap:18px; } .about-top .about-photo { width:100%; max-width:420px; } .about-top .about-photo img { height:190px !important; } .cv-entry { grid-template-columns:1fr; gap:3px; } }
