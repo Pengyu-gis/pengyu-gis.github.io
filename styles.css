@@ -69,6 +69,10 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .publication-group h2,.feedback-section h2 { margin:0 0 14px; padding-bottom:9px; border-bottom:1px solid var(--line); font-size:1rem; font-weight:600; letter-spacing:0; }
 .publication small .author-name { display:inline; color:var(--ink); font-size:inherit; font-weight:700; line-height:inherit; }
 .teaching-page { max-width:920px; }
+.guest-lecture { margin-bottom:28px; }
+.lecture-slide-link { display:inline-flex; justify-content:space-between; gap:28px; min-width:220px; margin-top:12px; padding:10px 0; color:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line); text-decoration:none; font-size:.84rem; font-weight:700; }
+.lecture-slide-link span { color:var(--muted); font:500 .68rem 'DM Mono',monospace; }
+.lecture-slide-link:hover span { color:var(--ink); }
 .feedback-section { margin-top:48px; }
 .score-list { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
 .score-list div { display:grid; gap:8px; padding:18px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -237,7 +241,104 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
   height: 118px !important;
 }
 
+.about-top {
+  display: block !important;
+  max-width: none !important;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 2.75rem !important;
+}
+
+.about-info {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 2.5rem !important;
+  align-items: end !important;
+}
+
+.about-name {
+  margin-bottom: 0.5rem !important;
+  font-size: 1.4rem !important;
+  letter-spacing: -0.025em !important;
+}
+
+.about-name-cn {
+  margin-left: 0.55rem !important;
+  font-size: 0.95rem !important;
+}
+
+.about-role {
+  max-width: 430px !important;
+}
+
+.about-affil {
+  margin-bottom: 0 !important;
+}
+
+.about-contact {
+  display: grid !important;
+  grid-template-columns: repeat(2, auto) !important;
+  gap: 0.45rem 1.4rem !important;
+  margin: 0 !important;
+}
+
+.contact-pill {
+  justify-content: space-between !important;
+  min-width: 88px !important;
+  padding: 0.15rem 0 !important;
+  color: var(--muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  font-weight: 500 !important;
+}
+
+.contact-pill:hover {
+  color: var(--ink) !important;
+  background: transparent !important;
+  border-color: var(--ink) !important;
+}
+
+.about-photo-bottom {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  width: 100% !important;
+  margin-top: 3.5rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+.about-photo-bottom .about-photo {
+  width: auto !important;
+  max-width: none !important;
+  text-align: left !important;
+}
+
+.about-photo-bottom .about-photo img {
+  height: auto !important;
+  aspect-ratio: 3 / 2 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.about-photo-bottom .about-photo:first-child img {
+  filter: grayscale(100%) !important;
+}
+
+.about-photo-bottom .about-photo:last-child img {
+  filter: grayscale(15%) !important;
+}
+
 @media (max-width: 768px) {
+  .about-info {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .about-contact {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 300px !important;
+  }
   .about-top {
     flex-direction: column-reverse !important;
     align-items: flex-start !important;
@@ -254,5 +355,16 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
   .about-photo-pair .about-photo {
     width: calc(50% - 0.4rem) !important;
     max-width: none !important;
+  }
+  .about-photo-bottom {
+    grid-template-columns: 1fr !important;
+    max-width: none !important;
+    margin-top: 2.5rem !important;
+  }
+  .about-photo-bottom .about-photo {
+    width: 100% !important;
+  }
+  .about-photo-bottom .about-photo img {
+    height: auto !important;
   }
 }
