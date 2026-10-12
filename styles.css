@@ -324,7 +324,7 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 }
 
 .about-photo-bottom .about-photo:first-child img {
-  filter: grayscale(100%) !important;
+  filter: none !important;
 }
 
 .about-photo-bottom .about-photo:last-child img {
