@@ -26,6 +26,61 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
+const gallery = document.querySelector('.about-gallery');
+if (gallery) {
+  const previous = document.querySelector('.gallery-prev');
+  const next = document.querySelector('.gallery-next');
+  const updateGalleryControls = () => {
+    previous.disabled = gallery.scrollLeft <= 1;
+    next.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1;
+  };
+  const moveGallery = (direction) => {
+    const step = gallery.querySelector('.memory-photo').offsetWidth + parseFloat(getComputedStyle(gallery).gap);
+    gallery.scrollBy({ left: direction * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  };
+  previous.addEventListener('click', () => moveGallery(-1));
+  next.addEventListener('click', () => moveGallery(1));
+  gallery.addEventListener('scroll', updateGalleryControls, { passive: true });
+  new ResizeObserver(updateGalleryControls).observe(gallery);
+  gallery.querySelectorAll('img').forEach((img) => img.addEventListener('load', updateGalleryControls));
+
+  let drag = null;
+  let suppressClick = false;
+  gallery.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    suppressClick = false;
+    drag = { id: event.pointerId, x: event.clientX, left: gallery.scrollLeft, moved: false };
+  });
+  gallery.addEventListener('pointermove', (event) => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const distance = event.clientX - drag.x;
+    if (!drag.moved && Math.abs(distance) > 6) {
+      drag.moved = true;
+      gallery.setPointerCapture(event.pointerId);
+      gallery.classList.add('is-dragging');
+    }
+    if (drag.moved) gallery.scrollLeft = drag.left - distance;
+  });
+  const finishDrag = () => {
+    if (drag?.moved) suppressClick = true;
+    drag = null;
+    gallery.classList.remove('is-dragging');
+  };
+  gallery.addEventListener('pointerup', finishDrag);
+  gallery.addEventListener('pointercancel', finishDrag);
+  gallery.addEventListener('lostpointercapture', finishDrag);
+  gallery.addEventListener('pointerleave', () => { if (drag && !drag.moved) finishDrag(); });
+  gallery.addEventListener('dragstart', (event) => event.preventDefault());
+  gallery.addEventListener('click', (event) => {
+    if (suppressClick && event.detail > 0) {
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }
+  }, true);
+  updateGalleryControls();
+}
+
 const materials = document.querySelector('.materials');
 if (materials) {
   materials.innerHTML = `<h3>Lab materials</h3><div class="material-list"><a href="assets/data/Maps_and_Mapping.pdf" target="_blank" rel="noreferrer">Maps and Mapping ↗</a><a href="assets/data/GEOG201_2024_Rocks.pdf" target="_blank" rel="noreferrer">Minerals and Rocks ↗</a><a href="assets/data/Soils_and_Soil_Mapping.pdf" target="_blank" rel="noreferrer">Soils and Soil Mapping ↗</a><a href="assets/data/Surface_Hydrology_and_Watershed_Processes.pdf" target="_blank" rel="noreferrer">Surface Hydrology and Watershed Processes ↗</a><a href="assets/data/Fluvial_Processes_and_Landforms.pdf" target="_blank" rel="noreferrer">Fluvial Processes and Landforms ↗</a><a href="assets/data/Review_GEOG201.pdf" target="_blank" rel="noreferrer">Review Session ↗</a></div>`;

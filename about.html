@@ -6,130 +6,7 @@
   <meta name="description" content="About Pengyu Chen - Ph.D. Student in Geospatial and Environmental Analysis">
   <title>About | Pengyu Chen</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* 极简风格内联补充与排版微调 */
-    :root {
-      --text-main: #111111;
-      --text-muted: #666666;
-      --border-color: #eaeaea;
-      --bg-hover: #f5f5f5;
-    }
-
-    /* 统一 Education 语义结构布局 */
-    .cv-entry {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .cv-entry time {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      padding-top: 0.15rem;
-    }
-
-    .cv-entry-content h3 {
-      margin: 0 0 0.35rem 0;
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .cv-place {
-      margin: 0 0 0.35rem 0;
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .cv-entry-content p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .cv-entry-content a {
-      color: var(--text-main);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* 极简标签式名单排版 (Tag/Chip List) */
-    .people-chips {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 0.75rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.6rem;
-    }
-
-    .people-chips li a {
-      display: inline-block;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.9rem;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .people-chips li a:hover {
-      background-color: var(--bg-hover);
-      border-color: #ccc;
-    }
-
-    .section-footnote {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* 底部相片质感与比例收敛 */
-    .about-photo-pair {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .about-photo {
-      margin: 0;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 4px;
-      background-color: #f8f8f8;
-      display: block;
-      transition: opacity 0.2s ease;
-    }
-
-    .about-photo figcaption {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    @media (max-width: 640px) {
-      .cv-entry {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
-      }
-      .about-photo-pair {
-        grid-template-columns: 1fr;
-      }
-      .about-photo img {
-        height: 200px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=photo-gallery-2">
 </head>
 <body>
   <header class="site-header">
@@ -163,7 +40,6 @@
       </div>
     </div>
 
-    <!-- Education 独立语义化拆分 -->
     <section class="cv-section">
       <h2>Education</h2>
       
@@ -177,7 +53,7 @@
       </article>
 
       <article class="cv-entry">
-        <time datetime="2020/2024">2020 – 2024</time>
+        <time datetime="2020">2020 – 2024</time>
         <div class="cv-entry-content">
           <h3>B.S. in Geographical Information Science</h3>
           <p class="cv-place">Wuhan University of Technology, Wuhan, Hubei</p>
@@ -186,7 +62,6 @@
       </article>
     </section>
 
-    <!-- Past Advisors: 修复非法 p 嵌套并改为轻量标签式排列 -->
     <section class="cv-section">
       <h2>Past Advisors</h2>
       <ul class="people-chips">
@@ -197,7 +72,6 @@
       <p class="section-footnote">Grateful for their invaluable guidance and support.</p>
     </section>
 
-    <!-- Collaborators: 结构规范化 -->
     <section class="cv-section">
       <h2>Collaborators</h2>
       <ul class="people-chips">
@@ -211,16 +85,53 @@
       <p class="section-footnote">Always open to research discussions and collaborations.</p>
     </section>
 
-    <!-- 底部记忆照片：固定高宽比与极简细线分隔 -->
-    <section class="about-photo-pair" aria-label="Campus and memories">
-      <figure class="about-photo">
-        <img src="assets/vt_hall.jpg" alt="Burruss Hall at Virginia Tech" loading="lazy">
-        <figcaption>Burruss Hall, Virginia Tech</figcaption>
-      </figure>
-      <figure class="about-photo">
-        <img src="assets/wut_302.jpg" alt="Graduation celebration at Wuhan University of Technology" loading="lazy">
-        <figcaption>Graduation celebration, Wuhan University of Technology</figcaption>
-      </figure>
+    <section class="about-memories" aria-labelledby="memories-heading">
+      <div class="memories-heading">
+        <h2 id="memories-heading">Beyond Research</h2>
+        <div class="gallery-controls" aria-label="Photo navigation">
+          <button type="button" class="gallery-prev" aria-label="Previous photos" aria-controls="about-gallery">←</button>
+          <button type="button" class="gallery-next" aria-label="Next photos" aria-controls="about-gallery">→</button>
+        </div>
+      </div>
+      <p class="memories-intro">Places, people, and moments along the way.</p>
+      <div class="about-gallery" id="about-gallery" tabindex="0" role="region" aria-label="Personal photos, scroll horizontally">
+        <figure class="memory-photo">
+          <a href="assets/vt_hall.jpg" target="_blank" rel="noreferrer" aria-label="View full-size photo of Burruss Hall">
+            <img src="assets/vt_hall.jpg" alt="Burruss Hall at Virginia Tech" width="1706" height="1279" loading="lazy">
+          </a>
+          <figcaption>Burruss Hall, Virginia Tech</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <a href="assets/wut_302.jpg" target="_blank" rel="noreferrer" aria-label="View full-size graduation photo">
+            <img src="assets/wut_302.jpg" alt="Graduation celebration with friends at Wuhan University of Technology" width="1920" height="1280" loading="lazy">
+          </a>
+          <figcaption>Graduation, Wuhan University of Technology</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <a href="assets/uofscfriends.jpg" target="_blank" rel="noreferrer" aria-label="View full-size photo with friends">
+            <img src="assets/uofscfriends.jpg" alt="A group photo with friends from the University of South Carolina" width="1706" height="1279" loading="lazy">
+          </a>
+          <figcaption>With friends from the University of South Carolina</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <a href="assets/carligraphy_midautumn.jpg" target="_blank" rel="noreferrer" aria-label="View full-size calligraphy photo">
+            <img src="assets/carligraphy_midautumn.jpg" alt="Chinese brush calligraphy of a poem for the Mid-Autumn Festival" width="1707" height="1280" loading="lazy">
+          </a>
+          <figcaption>Mid-Autumn Festival calligraphy</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <a href="assets/sanxia_badong_withroomates.jpg" target="_blank" rel="noreferrer" aria-label="View full-size photo in Badong">
+            <img src="assets/sanxia_badong_withroomates.jpg" alt="With roommates overlooking the Yangtze River in Badong, Three Gorges" width="4032" height="3024" loading="lazy">
+          </a>
+          <figcaption>Three Gorges, Badong, with roommates</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <a href="assets/eldenrigh_with_roomates.jpg" target="_blank" rel="noreferrer" aria-label="View full-size Elden Ring screenshot">
+            <img src="assets/eldenrigh_with_roomates.jpg" alt="An Elden Ring co-op session with roommates" width="1920" height="1080" loading="lazy">
+          </a>
+          <figcaption>Elden Ring with roommates</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 
@@ -230,6 +141,6 @@
       <a href="index.html">Home</a>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="script.js?v=photo-gallery-2"></script>
 </body>
 </html>
