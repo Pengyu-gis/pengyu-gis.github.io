@@ -135,9 +135,9 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .gallery-controls button { width:32px; height:32px; padding:0; border:1px solid var(--line); background:var(--paper); color:var(--ink); font-size:1rem; cursor:pointer; }
 .gallery-controls button:hover:not(:disabled) { border-color:var(--ink); }
 .gallery-controls button:disabled { opacity:.3; cursor:default; }
-.about-gallery { display:flex; gap:24px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:#aaa var(--paper); padding:4px 0 16px; cursor:grab; }
-.about-gallery:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
-.about-gallery.is-dragging { cursor:grabbing; scroll-snap-type:none; user-select:none; }
+.about-gallery,.poetry-gallery { display:flex; gap:24px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:#aaa var(--paper); padding:4px 0 16px; cursor:grab; }
+.about-gallery:focus-visible,.poetry-gallery:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
+.about-gallery.is-dragging,.poetry-gallery.is-dragging { cursor:grabbing; scroll-snap-type:none; user-select:none; }
 .about-gallery.is-dragging a { cursor:grabbing; }
 .memory-photo { flex:0 0 auto; width:max-content; min-width:0; margin:0; scroll-snap-align:start; }
 .memory-photo a { display:block; }
@@ -170,13 +170,9 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 .poetry-section { margin-top:56px; padding-top:28px; border-top:1px solid var(--line); }
 .poetry-section-heading h2 { margin:0 0 8px; font-size:1rem; letter-spacing:0; line-height:1.5; }
 .poetry-section-heading h2 span { margin-left:8px; font-weight:400; color:var(--muted); }
-.poetry-section-heading p { margin:0; color:var(--muted); font-size:.88rem; }
-.poem-index { display:flex; flex-wrap:wrap; gap:12px 28px; margin:24px 0 40px; font-size:.88rem; }
-.poem-index a { text-underline-offset:5px; text-decoration-color:var(--line); }
-.poem-index a:hover { text-decoration-color:var(--ink); }
-.poem { max-width:720px; margin:0 auto; padding:40px 0 48px; border-top:1px solid var(--line); scroll-margin-top:100px; }
+.poetry-gallery { margin-top:24px; align-items:stretch; }
+.poem { flex:0 0 min(85%,680px); min-width:0; margin:0; padding:24px; border:1px solid var(--line); scroll-snap-align:start; }
 .poem-header { margin-bottom:30px; }
-.poem-header h3 { margin:0 0 10px; font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif; font-size:1.4rem; font-weight:600; line-height:1.6; letter-spacing:.04em; }
 .poem-header time { color:var(--muted); font-size:.78rem; }
 .poem-body { font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif; font-size:1.05rem; line-height:2.1; letter-spacing:.035em; overflow-wrap:break-word; }
 .poem-body p { margin:0 0 26px; }
@@ -185,7 +181,6 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
 @media (max-width:760px) {
   .beyond-page.container { width:min(calc(100% - 32px),560px); }
   .beyond-page { padding-top:36px; }
-  .poem { padding:32px 0 40px; }
-  .poem-header h3 { font-size:1.2rem; }
-  .poem-body { font-size:1rem; letter-spacing:.02em; }
+  .poem { flex-basis:90%; padding:20px 16px; }
+    .poem-body { font-size:1rem; letter-spacing:.02em; }
 }

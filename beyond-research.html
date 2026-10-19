@@ -6,7 +6,7 @@
   <meta name="description" content="Photos and original Chinese poetry by Pengyu Chen.">
   <title>Beyond Research | Pengyu Chen</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=beyond-research-1">
+  <link rel="stylesheet" href="styles.css?v=poetry-gallery-1">
 </head>
 <body>
   <header class="site-header">
@@ -84,18 +84,16 @@
     </section>
 
     <section class="poetry-section" aria-labelledby="poetry-heading">
-      <div class="poetry-section-heading">
+      <div class="poetry-section-heading memories-heading">
         <h2 id="poetry-heading">Poetry <span lang="zh-Hans">诗</span></h2>
-        <p>Three poems, written in Chinese.</p>
+        <div class="gallery-controls" aria-label="Poetry navigation">
+          <button type="button" class="gallery-prev" aria-label="Previous poem" aria-controls="poetry-gallery">←</button>
+          <button type="button" class="gallery-next" aria-label="Next poem" aria-controls="poetry-gallery">→</button>
+        </div>
       </div>
-      <nav class="poem-index" aria-label="Poem titles" lang="zh-Hans">
-        <a href="#poem-if">倘若</a>
-        <a href="#poem-waiting">在农学院旁等你到深夜</a>
-        <a href="#poem-threads">命运的线</a>
-      </nav>
-      <article class="poem" id="poem-if" lang="zh-Hans" aria-labelledby="title-if">
+      <div class="poetry-gallery" id="poetry-gallery" tabindex="0" role="region" aria-label="Poetry, scroll horizontally">
+      <article class="poem" id="poem-if" lang="zh-Hans" aria-label="倘若">
         <header class="poem-header">
-          <h3 id="title-if">倘若</h3>
           <time datetime="2022-02-08">2022年2月8日</time>
         </header>
         <div class="poem-body">
@@ -108,9 +106,8 @@
           <p>倘若我明天就旅行，归期不定，你是否会像我等待你一样地安静地等待我，3年，5年，7年，那永远无法触碰到的玫瑰香。</p>
         </div>
       </article>
-      <article class="poem" id="poem-waiting" lang="zh-Hans" aria-labelledby="title-waiting">
+      <article class="poem" id="poem-waiting" lang="zh-Hans" aria-label="在农学院旁等你到深夜">
         <header class="poem-header">
-          <h3 id="title-waiting">在农学院旁等你到深夜</h3>
           <time datetime="2022-05-25">2022年5月25日</time>
         </header>
         <div class="poem-body">
@@ -127,9 +124,8 @@
           <p>光年外，银河旋转从不停歇。</p>
         </div>
       </article>
-      <article class="poem" id="poem-threads" lang="zh-Hans" aria-labelledby="title-threads">
+      <article class="poem" id="poem-threads" lang="zh-Hans" aria-label="命运的线">
         <header class="poem-header">
-          <h3 id="title-threads">命运的线</h3>
           <time datetime="2023-02-21">2023年2月21日</time>
         </header>
         <div class="poem-body">
@@ -145,6 +141,7 @@
             命运的线，缠绕我。</p>
         </div>
       </article>
+      </div>
     </section>
   </main>
 
@@ -154,6 +151,6 @@
       <a href="index.html">Home</a>
     </div>
   </footer>
-  <script src="script.js?v=photo-gallery-2"></script>
+  <script src="script.js?v=poetry-gallery-1"></script>
 </body>
 </html>

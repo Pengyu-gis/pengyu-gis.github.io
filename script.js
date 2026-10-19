@@ -26,16 +26,16 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-const gallery = document.querySelector('.about-gallery');
-if (gallery) {
-  const previous = document.querySelector('.gallery-prev');
-  const next = document.querySelector('.gallery-next');
+document.querySelectorAll('.about-gallery, .poetry-gallery').forEach((gallery) => {
+  const section = gallery.closest('section');
+  const previous = section.querySelector('.gallery-prev');
+  const next = section.querySelector('.gallery-next');
   const updateGalleryControls = () => {
     previous.disabled = gallery.scrollLeft <= 1;
     next.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1;
   };
   const moveGallery = (direction) => {
-    const step = gallery.querySelector('.memory-photo').offsetWidth + parseFloat(getComputedStyle(gallery).gap);
+    const step = gallery.firstElementChild.offsetWidth + parseFloat(getComputedStyle(gallery).gap);
     gallery.scrollBy({ left: direction * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   };
   previous.addEventListener('click', () => moveGallery(-1));
@@ -79,7 +79,7 @@ if (gallery) {
     }
   }, true);
   updateGalleryControls();
-}
+});
 
 const materials = document.querySelector('.materials');
 if (materials) {
