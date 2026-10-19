@@ -153,3 +153,39 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
   .memory-photo img { height:210px; }
   .about-memories { margin-top:36px; }
 }
+
+/* Personal writing and photography. */
+.beyond-entry { margin-top:48px; padding-top:24px; border-top:1px solid var(--line); }
+.beyond-entry h2 { margin:0 0 8px; font-size:1rem; letter-spacing:0; }
+.beyond-entry p { margin:0 0 14px; color:var(--muted); font-size:.88rem; }
+.beyond-entry a { font-size:.85rem; text-underline-offset:4px; }
+.beyond-entry a span { margin-left:12px; }
+.beyond-page.container { width:min(calc(100% - 48px),900px); }
+.back-to-about { color:var(--muted); font-size:.8rem; text-decoration:none; }
+.beyond-page-header h1 { margin:24px 0 12px; font-size:clamp(2rem,5vw,3rem); line-height:1.15; font-weight:500; letter-spacing:-.045em; }
+.beyond-page-header > p { color:var(--muted); font-size:.95rem; }
+.beyond-page-nav { display:flex; gap:24px; margin-top:24px; font-size:.85rem; }
+.beyond-page-nav a { text-underline-offset:5px; }
+.beyond-page .about-memories { margin-top:36px; }
+.poetry-section { margin-top:56px; padding-top:28px; border-top:1px solid var(--line); }
+.poetry-section-heading h2 { margin:0 0 8px; font-size:1rem; letter-spacing:0; line-height:1.5; }
+.poetry-section-heading h2 span { margin-left:8px; font-weight:400; color:var(--muted); }
+.poetry-section-heading p { margin:0; color:var(--muted); font-size:.88rem; }
+.poem-index { display:flex; flex-wrap:wrap; gap:12px 28px; margin:24px 0 40px; font-size:.88rem; }
+.poem-index a { text-underline-offset:5px; text-decoration-color:var(--line); }
+.poem-index a:hover { text-decoration-color:var(--ink); }
+.poem { max-width:720px; margin:0 auto; padding:40px 0 48px; border-top:1px solid var(--line); scroll-margin-top:100px; }
+.poem-header { margin-bottom:30px; }
+.poem-header h3 { margin:0 0 10px; font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif; font-size:1.4rem; font-weight:600; line-height:1.6; letter-spacing:.04em; }
+.poem-header time { color:var(--muted); font-size:.78rem; }
+.poem-body { font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif; font-size:1.05rem; line-height:2.1; letter-spacing:.035em; overflow-wrap:break-word; }
+.poem-body p { margin:0 0 26px; }
+.poem-body p:last-child { margin:0; }
+#photos-heading,#poetry-heading { scroll-margin-top:100px; }
+@media (max-width:760px) {
+  .beyond-page.container { width:min(calc(100% - 32px),560px); }
+  .beyond-page { padding-top:36px; }
+  .poem { padding:32px 0 40px; }
+  .poem-header h3 { font-size:1.2rem; }
+  .poem-body { font-size:1rem; letter-spacing:.02em; }
+}
