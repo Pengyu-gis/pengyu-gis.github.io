@@ -128,3 +128,14 @@ if (postList && postContent) {
     })
     .catch(() => { postList.innerHTML = '<p class="muted">No posts found yet.</p>'; });
 }
+
+// Publication glyphs: on touch screens (no hover), play each icon once as it scrolls into view.
+const glyphRows = [...document.querySelectorAll('.pub-glyph')].map((glyph) => glyph.closest('.publication'));
+if (glyphRows.length && matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+  const glyphObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-playing');
+    glyphObserver.unobserve(entry.target);
+  }), { threshold: 0.6 });
+  glyphRows.forEach((row) => glyphObserver.observe(row));
+}

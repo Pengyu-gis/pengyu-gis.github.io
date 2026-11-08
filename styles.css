@@ -184,3 +184,89 @@ body { font-family:Arial,Helvetica,sans-serif; font-size:15px; }
   .poem { flex-basis:90%; padding:20px 16px; }
     .poem-body { font-size:1rem; letter-spacing:.02em; }
 }
+
+/* Publication glyphs: small line icons that animate the core idea of a paper on hover / focus / scroll-in (touch). */
+.pub-year:has(.pub-glyph) { display:flex; flex-direction:column; gap:12px; }
+.pub-glyph { display:block; width:56px; height:56px; color:var(--ink); }
+.pub-glyph * { fill:none; stroke:currentColor; stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
+.pub-glyph .g-frame { stroke:var(--line); }
+.g-crash .g-road { stroke:#b5b5b5; }
+.g-crash .g-hot { stroke-width:3.4; }
+.g-crash .g-dot { fill:currentColor; stroke:#fff; stroke-width:.9; }
+.g-tree .g-canopy { fill:#efefef; stroke:none; }
+.g-tree .g-flow { stroke:#9a9a9a; stroke-width:.9; }
+.g-tree .g-seed { fill:currentColor; stroke:none; }
+.g-gan .g-tile { fill:#f6f6f6; stroke:none; }
+.g-gan .g-roofs rect { fill:#dcdcdc; stroke:#555; stroke-width:.8; }
+.g-gan .g-roofs path { stroke:#555; stroke-width:.8; }
+.g-gan .g-blurred rect { fill:#c9c9c9; stroke:#999; }
+.g-gan .g-oldbase { fill:#ebebeb; stroke:none; }
+.g-gan .g-old rect[filter] { fill:#fff; stroke:none; }
+.g-gan .g-old { transform:translateX(44px); }
+.g-gan .g-scan { stroke-width:1.4; }
+.g-gan .g-box { stroke-width:1; }
+@media (prefers-reduced-motion:no-preference) {
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-crash .g-dot { animation:g-drop .45s cubic-bezier(.3,1.5,.55,1) calc(var(--i) * 90ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-crash .g-hot { stroke-dasharray:1; animation:g-draw .5s ease-out 1s both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-tree .g-flow { stroke-dasharray:1; animation:g-flow 1.1s ease-out calc(var(--i) * 50ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-tree .g-crown { stroke-dasharray:1; animation:g-draw .55s ease-in-out calc(.75s + var(--i) * 150ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-tree .g-seed { transform-box:fill-box; transform-origin:center; animation:g-pop .3s cubic-bezier(.3,1.6,.5,1) calc(.55s + var(--i) * 150ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-gan .g-old { animation:g-restore 1.1s cubic-bezier(.6,0,.3,1) .25s both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-gan .g-box { stroke-dasharray:1; animation:g-draw .4s ease-out calc(1.25s + var(--i) * 110ms) both; }
+}
+@keyframes g-drop { from { opacity:0; transform:translateY(-9px); } to { opacity:1; transform:none; } }
+@keyframes g-draw { from { stroke-dashoffset:1; } to { stroke-dashoffset:0; } }
+@keyframes g-flow { 0% { stroke-dashoffset:1; stroke:currentColor; } 55% { stroke-dashoffset:0; stroke:currentColor; } 100% { stroke-dashoffset:0; } }
+@keyframes g-pop { from { opacity:0; transform:scale(0); } to { opacity:1; transform:none; } }
+@keyframes g-restore { from { transform:none; } to { transform:translateX(44px); } }
+.g-vlm .g-photo { fill:#f3f3f3; }
+.g-vlm .g-mtn { stroke:#777; }
+.g-vlm .g-sun { fill:#bbb; stroke:none; }
+.g-vlm .g-rate { stroke:#999; }
+.g-vlm .g-rate.on { fill:currentColor; stroke:currentColor; }
+.g-bear .g-vf { stroke:#999; }
+.g-bear .g-body { fill:#dcdcdc; stroke:#555; stroke-width:.8; }
+.g-bear .g-ear { fill:#dcdcdc; stroke:#555; stroke-width:.8; }
+.g-bear .g-spk { fill:currentColor; }
+.g-xmod .g-bar { stroke-width:1.4; }
+.g-xmod .g-link { stroke-dasharray:2 2; stroke:#888; }
+.g-xmod .g-view { fill:#f3f3f3; }
+.g-xmod .g-persp, .g-xmod .g-blocks { stroke:#777; stroke-width:.8; }
+.g-hire-net .g-hire { stroke:#aaa; stroke-width:.9; }
+.g-hire-net .g-src { fill:currentColor; stroke:none; }
+.g-hire-net .g-dst { fill:currentColor; stroke:none; }
+.g-heat .g-thermo { fill:#fff; }
+.g-heat .g-mercury, .g-heat .g-bulb { fill:currentColor; stroke:none; }
+.g-heat .g-base { stroke:#999; }
+.g-heat .g-was { stroke:#bbb; stroke-dasharray:1.5 1.5; }
+.g-heat .g-bar-a, .g-heat .g-bar-b { transform-box:fill-box; transform-origin:bottom; stroke:none; }
+.g-heat .g-bar-a { fill:currentColor; transform:scaleY(.4); }
+.g-heat .g-bar-b { fill:#bdbdbd; transform:scaleY(.82); }
+.g-heat .g-mercury { transform-box:fill-box; transform-origin:bottom; }
+@media (prefers-reduced-motion:no-preference) {
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-vlm .g-wave { stroke-dasharray:1; animation:g-draw .35s ease-out calc(.15s + var(--i) * 170ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-vlm .g-rate.on { animation:g-fill .25s ease-out calc(.8s + var(--i) * 120ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-bear .g-detect { stroke-dasharray:1; animation:g-draw .35s ease-out .75s both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-bear .g-spk { animation:g-fade .2s ease-out 1.1s both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-bear .g-alarm { animation:g-blink .6s ease-in-out calc(1.2s + var(--i) * 120ms) 2 both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-bear .g-animal { animation:g-walk .7s cubic-bezier(.2,.7,.3,1) both, g-flee .5s ease-in 1.9s forwards; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-xmod .g-bar { transform-box:fill-box; transform-origin:center; animation:g-grow .3s ease-out calc(var(--i) * 50ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-xmod .g-link { stroke-dasharray:1; animation:g-draw .4s ease-out calc(.6s + var(--i) * 150ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-xmod .g-view { animation:g-hi .5s ease-out calc(.9s + var(--i, 0) * 150ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-hire-net .g-hire { stroke-dasharray:1; animation:g-draw .45s ease-out calc(var(--i) * 110ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-hire-net .g-dst { animation:g-fill .25s ease-out calc(.4s + var(--i) * 120ms) both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-heat .g-mercury { animation:g-rise .7s ease-in both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-heat .g-bar-a { animation:g-drop-a .6s ease-out .6s both; }
+  :is(.publication:hover,.publication:focus-visible,.publication.is-playing) .g-heat .g-bar-b { animation:g-drop-b .6s ease-out .6s both; }
+}
+@keyframes g-fill { from { fill:#fff; stroke:#999; opacity:.4; } }
+@keyframes g-fade { from { opacity:0; } }
+@keyframes g-blink { 0%,100% { opacity:0; } 50% { opacity:1; } }
+@keyframes g-walk { from { transform:translateX(-30px); opacity:0; } 40% { opacity:1; } }
+@keyframes g-flee { to { transform:translateX(-30px); opacity:0; } }
+@keyframes g-grow { from { transform:scaleY(.1); } }
+@keyframes g-hi { 0% { fill:#f3f3f3; } 40% { fill:#d6d6d6; } 100% { fill:#f3f3f3; } }
+@keyframes g-rise { from { transform:scaleY(.15); } }
+@keyframes g-drop-a { from { transform:none; } }
+@keyframes g-drop-b { from { transform:none; } }
+@media (max-width:760px) { .pub-glyph { width:44px; height:44px; } }
